@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "brand": "Chris的AI投研手记",
+  "description": "投资证据链 · 月度快照审计日志（SHA-256 指纹，git 历史不可篡改）",
+  "entries": [
+    {
+      "date": "2026-08-18",
+      "report": "portfolio_report.html",
+      "sha256": "9a0f5044a31292866fffe9b9b94e150c03e8486981626e5699e9136f132fbbce",
+      "note": "初始审计条目：投资盘口径修正后首版"
+    },
+    {
+      "date": "2026-08-18",
+      "report": "portfolio_report.html",
+      "sha256": "f004e9933dae2d7535cbc523312b4e4c352ba6931784f9d17cd037782ab6df0e",
+      "note": "币本位业绩板块上线：权利金以 BTC 结算，+0.0221 BTC"
+    },
+    {
+      "date": "2026-08-18",
+      "report": "portfolio_report.html",
+      "sha256": "a2781d03d8e5663f11a2da11f37cdd43d2c227ab203daa0c24a379be475f3add",
+      "note": "v3.1：Hermes 5 大模块重构 + 数据修正（股息/买入真实值）+ HSI/SPX 双基准接入"
+    }
+  ]
+}
