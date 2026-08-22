@@ -20,6 +20,42 @@
       "report": "portfolio_report.html",
       "sha256": "a2781d03d8e5663f11a2da11f37cdd43d2c227ab203daa0c24a379be475f3add",
       "note": "v3.1：Hermes 5 大模块重构 + 数据修正（股息/买入真实值）+ HSI/SPX 双基准接入"
+    },
+    {
+      "date": "2026-08-23",
+      "report": "portfolio_report.html",
+      "sha256": "0c15de7ce8edf60ea3e1dbe28ad051a5f66e6d79790c635e3b67ecfc383cf40c",
+      "note": "v3.2：8/21 CC 强平事件记录（Forced Liquidation，dual momentum 日线+4h 全条件满足触发）"
+    },
+    {
+      "date": "2026-08-23",
+      "report": "portfolio_report.html",
+      "sha256": "0656e30cbb8a40111d93d53c1c81fa9b7625dc7f19b41b1edc61d27d0856afa7",
+      "note": "v3.3：强平细节补全（OKX全年CC分析报告口径）— 全年期权净P&L -0.023958 BTC（7笔盈利+0.020731 vs 强平-0.043289），胜率87.5%，血训写入（全仓模式+1BTC安全垫+止损单）；永续亏损不计入100万盘"
+    },
+    {
+      "date": "2026-08-23",
+      "report": "portfolio_report.html",
+      "sha256": "890a722709406a92deb27c92d50b3e5b21da71ba4c21c2ca027e71d53142bf15",
+      "note": "v3.4：BTC 最新价 77,294（OKX 8/23 实拉）全报表重算 + CC 策略暂停（dual momentum 日线+4h 双转多，信号 long）+ M2 标注无当前持仓"
+    },
+    {
+      "date": "2026-08-23",
+      "report": "portfolio_report.html",
+      "sha256": "af307feb913b34ce650d29bb6a8a1edebda101c60a21de9f1cb093850d3292d4",
+      "note": "v3.5：数据修正（用户纠错）— BTC 数量改 0.56454（强平后真实余额）、KAP 改 70.23（IBKR 8/23 实拉）、投资盘 RMB 883,938（-11.6%）、删除 6.2 记混表述 + 新增生成后自查（四项合计核对）"
+    },
+    {
+      "date": "2026-08-23",
+      "report": "portfolio_report.html",
+      "sha256": "a630d5ca5245dc5890e2846c9591afd1087c2597461e8e726720c37ca0ed3dfd",
+      "note": "v3.6：修复逻辑观察线显示旧价 bug（next() 取第一条 vs dict 取最新不一致）——统一用最新价，KAP $70.23/康臣 HKD 13.60"
+    },
+    {
+      "date": "2026-08-23",
+      "report": "portfolio_report.html",
+      "sha256": "9a2bf0f20a6c089d1eb362585a317fb80549f88850bcb9c67d96e2e324af1c0b",
+      "note": "v3.7：观察线标题日期更新（批准 2026-08-18 · 强平血训后更新 2026-08-23）"
     }
   ]
 }
