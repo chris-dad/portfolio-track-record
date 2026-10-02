@@ -62,6 +62,18 @@
       "report": "portfolio_report.html",
       "sha256": "203aac78e81366178854ccf9a4082bcb27662a214ab31845780b6cb234e7feaa",
       "note": "v3.8：2026-08 月度复盘自动化生成（8月期权账本 -0.037709 BTC，全年权威口径 -0.023958 BTC；KAP $74.80/康臣 HKD 13.52/BTC $77,937 三源交叉）+ 修复胜率四舍五入 bug（88%→87.5%）"
+    },
+    {
+      "date": "2026-10-01",
+      "report": "portfolio_report.html",
+      "sha256": "877a18fb47a40d8bea50d70b4c5caf8af0eb0160274fa79e14c1ea4169405d38",
+      "note": "v3.9.2：2026-09 月度全盘重算版。币种闭合校验（KAP LSE IOB = USD，IBKR PnL 差 0.04% 闭合，否决凌晨版 GBP 误判）+ 成本冻结 $140,845 + 投资现金冻结 $19,547 + 观察线动态渲染 + Portfolio/IBKR 双净值线 + M6 跨月对账闸门 + 归档 manifest_2026-09 + 9月利息补录 $50.99。投资盘 $128,100（MoM -3.07%）/ 累计 -9.05% / 0 笔交易（CC 暂停中）"
+    },
+    {
+      "date": "2026-10-02",
+      "report": "portfolio_report.html",
+      "sha256": "aefed65918ac5b83998c37dc5c54d3db9a7564ca6580672d1ae2a55a86327ba0",
+      "note": "v3.9.3：KAP 观察线 review 结论落库（2026-10-02 用户拍板 HOLD_WITH_REASON — 美债息率 Beta 压估值、基本面 stable、继续持股）+ 风险调整收益指标上线（Sharpe/Sortino/Calmar，Roadmap 兑现；快照 3 点 = 2 收益区间，数值无统计意义仅机制基线）+ 归档 report_2026-09.html 与 manifest_2026-09.json。审计链断链修复（v3.8 → v3.9.2 中间迭代版未留痕，按实存版本补录，不编造）"
     }
   ]
 }
