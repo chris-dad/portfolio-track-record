@@ -68,6 +68,12 @@
       "report": "portfolio_report.html",
       "sha256": "877a18fb47a40d8bea50d70b4c5caf8af0eb0160274fa79e14c1ea4169405d38",
       "note": "v3.9.2 → v3.9.3：KAP 观察线 review 结论落库（2026-10-02 用户拍板 HOLD_WITH_REASON — 美债息率 Beta 压估值、基本面 stable、继续持股）+ 风险调整收益指标上线（Sharpe/Sortino/Calmar，Roadmap 兑现；快照 3 点 = 2 收益区间，数值无统计意义仅机制基线）+ 归档 report_2026-09.html 与 manifest_2026-09.json。审计链断链修复（v3.8 → 2026-10-02 期间未留痕，按实存版本补录，不编造中间指纹）。注：本条 sha256 = 报告内容指纹（与 M5 内嵌值同口径，v3.9.2 与 v3.9.3 内容指纹相同因 M1 复盘块位移不改变指纹基准）；报告文件本身 sha256 = aefed65918ac5b83998c37dc5c54d3db9a7564ca6580672d1ae2a55a86327ba0，由 git commit 负责文件完整性"
+    },
+    {
+      "date": "2026-10-15",
+      "report": "portfolio_report.html",
+      "sha256": "0042c6d4e951821abd7adbde3d1ebfbfa1e8f34b1709f4cc65fe088f3dfd519f",
+      "note": "v4.0：10/15 DM讯号flat，严格按量化模型卖出全部BTC 0.56454172 @ 81,457.94 USDT（手续费0，OKX交易账单webbridge实拉）→ 45,986.41 USDT 转入OKX活期（2.75%年利率）。用户同日抓出口径裂缝：RMB 现值 846,842 vs 100万本金直觉亏 -15.32%，报告只列 USD 口径 -10.35% → M1 改双口径并列（RMB 本位 = 真实购买力 -15.32% / USD 运行 -10.35% 剔除汇率，差额 5.5% = RMB 升值折算效应，非投资亏损），高水线卡位让位给 RMB 本位 KPI；新增 M1 顶部重大事件横幅（CFG.major_event，无事件自动消失防残留）。投资盘 $126,272（RMB 846,842），月内 -1.42%。生成器：btc_qty=0 + USDT存款 + MoM期初/期末区分 + M2动态化 + 自查1五项 + 自查2时间窗规则 + M6对账8条真实事件解释。报告文件sha256=492926069a4426db6d6721f88f01c3072f763d15c7159f8bef58e0218fbb813b（由git commit负责）"
     }
   ]
 }
