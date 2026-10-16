@@ -74,6 +74,12 @@
       "report": "portfolio_report.html",
       "sha256": "089ab6c1a0ff6306491c6993d6757cf9fc522d2d80f084f663d222aa98efb6f4",
       "note": "v4.0：10/15 DM讯号flat，严格按量化模型卖出全部BTC 0.56454172 @ 81,457.94 USDT（手续费0，OKX交易账单webbridge实拉）→ 45,986.41 USDT 转入OKX活期（2.75%年利率）。用户同日抓出口径裂缝：RMB 现值 846,842 vs 100万本金直觉亏 -15.32%，报告只列 USD 口径 -10.35% → M1 改双口径并列（RMB 本位 = 真实购买力 -15.32% / USD 运行 -10.35% 剔除汇率，差额 5.5% = RMB 升值折算效应，非投资亏损），高水线卡位让位给 RMB 本位 KPI；新增 M1 顶部重大事件横幅（CFG.major_event，无事件自动消失防残留）。投资盘 $126,272（RMB 846,842），月内 -1.42%。生成器：btc_qty=0 + USDT存款 + MoM期初/期末区分 + M2动态化 + 自查1五项 + 自查2时间窗规则 + M6对账8条真实事件解释。报告文件sha256=492926069a4426db6d6721f88f01c3072f763d15c7159f8bef58e0218fbb813b（由git commit负责）。同日修复回归 bug：REPORT_MONTH 切 2026-10 后 review_disc 按 month 查不到拍板行 → 复盘结论块（KAP HOLD_WITH_REASON/康臣风险#1/BTC 清仓）显示 fallback 旧文案 → 建 month=2026-10 行承载当前有效拍板，块已回归。最终内容指纹=089ab6c1a0ff6306491c6993d6757cf9fc522d2d80f084f663d222aa98efb6f4，文件sha256=14f63f4268bf3fc57b6009d90d2bbca76ff44d7ba832b7117cdf4e10321c8a5c"
+    },
+    {
+      "date": "2026-10-16",
+      "report": "portfolio_report.html",
+      "sha256": "e793350c7d23238286a3a4fd3054083ae32768892a2b24c5ea18294682061b3f",
+      "note": "v4.1：10/16 DM信号反转long，严格按量化模型买回BTC 0.55835744 @ 82,366.11 USDT（OKX订单截图实拉，订单号226101611534102918721，手续费0，支付45,989.73 USDT）。资金链守恒：赎回OKX活期45,986.41 + 一天活期利息≈3.32 = 支付45,989.73 ✓；BTC数量 0.56454172→0.55835744 少0.00618 = 卖买价差损耗（81,457.94→82,366.11 +1.1%）。CFG更新：btc_qty=0.55835744、okx_usdt_deposit=0.0、major_event换为买回版；trades id=17入库、price_history BTC 10/16=82366.11（source=okx_deal_price）；monthly_reviews 2026-10行btc_status=re_entry_per_model；manifest_2026-09 restatement_notes追加买回说明。同日独立验证（verify_independent.py 适配2026-10口径）抓出康臣数据事故：DB 10/15收盘误存盘中价15.01（实为10/14收盘，日期错位），独立双源（ifzq日K + 次日昨收）实证10/15真实收盘=15.39 → 修正DB并重算：康臣mv 13,387→13,726，投资盘$126,275→$126,614，MoM -1.42%→-1.16%，RMB现值846,864→849,137；同步修复verify脚本qt昨收fallback日期漂移bug（昨收=最近收盘日≠任意历史日）。全项独立验证通过后发布。报告文件sha256=40736b38fcc62b7ee069ebd0d5b7288da23a09147c85b86b4fb7273a6c5241ef（由git commit负责）"
     }
   ]
 }
