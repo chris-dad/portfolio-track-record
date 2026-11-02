@@ -39,7 +39,7 @@ details summary { font-size:13px; }
 <div class="wrap">
   <h1>Chris的AI投研手记 · 投资证据链 <span class="badge" style="display:inline-block;background:#1f6feb22;color:var(--accent);border:1px solid #1f6feb66;padding:2px 10px;border-radius:20px;font-size:12px;margin-left:8px">LP 审阅版 · 只读</span></h1>
   <div style="margin:10px 0 0 0;font-size:13px">人民币本位版（A 类） · <a href="index-en.html" style="color:var(--accent);text-decoration:none">English edition (USD Class) →</a></div>
-  <div class="sub">月度 Portfolio 报告 · 数据源 IBKR Gateway / OKX API / tdx 真实记录 · 生成于 2026-11-02 10:01 · 汇率（USD/CNY 6.6710, USD/HKD 7.8454，open.er-api 2026-11-01 中间价）· 成本基准冻结 $140,845（2026-08-18）</div>
+  <div class="sub">月度 Portfolio 报告 · 数据源 IBKR Gateway / OKX API / tdx 真实记录 · 生成于 2026-11-02 11:42 · 汇率（USD/CNY 6.6710, USD/HKD 7.8454，open.er-api 2026-11-01 中间价）· 成本基准冻结 $140,845（2026-08-18）</div>
 
   
   <div class="card">
@@ -63,7 +63,7 @@ details summary { font-size:13px; }
     <table>
       <tr><th>本月核心 KPI</th><th>数值</th><th>口径</th></tr>
       <tr><td>MoM%（本月回报）</td><td><span class='neg'>-3.63%</span></td><td><b>投资盘口径</b>：上月末（2026-09-30 收盘）vs 本月末（2026-10-30 收盘）；现金本金冻结 $19,547，含 IBKR 推定应计利息（ACT/360）及 OKX 活期实收利息 —— KAP 754 股 + 康臣 月初 7,000 股（月末 5,000，10/21 减 2,000）+ BTC 期初 0.56454 → 已清仓 + OKX 活期 USDC 43,886 + 投资用现金 + IBKR 港币现金 + IBKR 应计利息</td></tr>
-      <tr><td>IBKR 账户净值（参考，非投资盘口径）</td><td><span class='neg'>-4.58%</span></td><td>账户净值快照首尾差（4 个快照）；含非投资用现金，<b>不可与上项混用</b></td></tr>
+      
       <tr><td>YTD%（年内累计）</td><td><span class="muted">待积累</span></td><td>需年初净值基准</td></tr>
       <tr><td>已实现现金收入</td><td>≈ $932</td><td>含 inception 前收入，不计入业绩；股息+利息 $2,513 + 期权净 P&L $-1,581（含强平亏损，文档口径），全部折算 USD</td></tr>
     </table>
@@ -111,7 +111,7 @@ details summary { font-size:13px; }
     <div class="charts">
       <div class="chart-box"><canvas id="allocChart"></canvas><div class="chart-cap">资产类别（Stock/Stable/Crypto/Cash）</div></div>
       <div class="chart-box"><canvas id="incomeChart"></canvas><div class="chart-cap">收入来源（USD 等值）</div></div>
-      <div class="chart-box chart-wide"><canvas id="navChart"></canvas><div class="chart-cap">组合净值走势（USD）· <b>投资盘逐日估值</b>（实线，由成交流水重建持仓，含 OKX 现金与 IBKR 港币现金）vs <b>IBKR 账户净值</b>（虚线，官方快照，最新止于 2026-11-02）· 两口径含不同现金范围，<b>不可混用</b></div></div>
+      <div class="chart-box chart-wide"><canvas id="navChart"></canvas><div class="chart-cap">组合净值走势（USD）· <b>投资盘逐日估值</b>（由成交流水重建持仓，含 OKX 现金与 IBKR 港币现金）。<b>不叠加 IBKR 券商账户净值</b>——该账户内有本人私人存款，不属于本组合</div></div>
       <div class="chart-box"><canvas id="chartKAP"></canvas><div class="chart-cap">KAP（USD · LSE IOB）</div></div>
       <div class="chart-box"><canvas id="chartKANG"></canvas><div class="chart-cap">康臣 01681（HKD）</div></div>
       <div class="chart-box"><canvas id="chartBTC"></canvas><div class="chart-cap">BTC（USDT · 10/24 清仓后无持仓）</div></div>
@@ -145,14 +145,7 @@ details summary { font-size:13px; }
       <b style="color:var(--warn)">⚠️ 分项口径说明（防误读）</b>：上表按<b>价格效应</b>拆解（减仓行按卖出净额计，已扣费），五行之和 −4,654，与组合合计 −4,654 的差额 <b>+0</b> 为四舍五入，<b>无未解释残差</b>。若按「市值直接相减」口径，清仓/减仓月份会出现 −41%、−100% 这类数字，全部是<b>仓位效应</b>而非亏损，已弃用该失真口径。
     </div>
     <div class="muted" style="font-size:12px">分项为价格变动贡献；投资盘合计含投资用现金（冻结 $19,547）、OKX 活期 USDC 与 IBKR 港币现金（HKD 32,138.64，康臣减仓净额，2026-11-01 由致富调回 IBKR 收息）。<b>月末终值口径</b>（2026-09-30 收盘 vs 2026-10-30 收盘），全部为已收盘价，非盘中实时价。价格源：Binance Vision（BTC 10/30）/ 东财 LSE + 腾讯 ukKAP 交叉（KAP，USD）/ 腾讯 ifzq 日K + qt.gtimg 交叉（康臣，HKD）。</div>
-    <table>
-      <tr><th>风险调整指标（账户级 · Roadmap 2026-09-03 已实现）</th><th>数值</th><th>口径</th></tr>
-      <tr><td colspan="3" style="background:#fef3c7;color:#92400e;font-size:12px;font-weight:700;line-height:1.55">⚠️ 账户级口径（含非投资盘现金），<u>非投资盘业绩</u>；样本 4 点，不具统计意义；<b>对外以英文版为准</b>——投资盘按 GIPS 2020 不满 36 个月不披露（4.A.1.j），不满 1 年不年化（2.A.12）</td></tr>
-      <tr><td>Sharpe Ratio</td><td>-11.56</td><td rowspan="4" style="font-size:12px" class="muted">⚠️ 样本 = 3 个收益区间（4 个快照点 / 76 天），统计意义极低，仅为机制基线；年化放大噪声（区间总收益 -4.58% → 年化 -20.2%），数值随月度净值快照积累自动精确化。rf = IBKR 3.13%→3.38%</td></tr>
-      <tr><td>Sortino Ratio</td><td>-11.52</td></tr>
-      <tr><td>Calmar Ratio</td><td>-3.98</td></tr>
-      <tr><td>Max Drawdown（账户级 · 4 点快照）</td><td><span class='neg'>-5.07%</span></td></tr>
-    </table>
+    <div class="muted" style="font-size:12px;line-height:1.75">本报告<b>不披露</b> Sharpe / Sortino / Calmar 及账户级最大回撤，原因有二：<br>① IBKR 券商账户内除本组合资金外另有本人<b>私人存款</b>，账户净值不属于本组合业绩，该部分财务数据不进入本报告；<br>② 账户口径既含上述存款、又不含康臣药业（在港券商托管）与 OKX 资产，<b>成分与本组合不同</b>，两者不可比，并列展示只会误导。<br>投资盘层面按 GIPS 2020 亦未满 36 个月观测（4.A.1.j），风险统计最早于 2029 年 8 月后披露。</div>
     <table>
       <tr><td>Alpha / Beta</td><td class="muted">待积累</td><td>需基准指数数据</td></tr>
     </table>
@@ -317,7 +310,7 @@ details summary { font-size:13px; }
     <div style="margin:10px 0;padding:14px 16px;background:#3fb95014;border:1px solid #3fb95066;border-radius:8px"><b style="color:var(--pos);font-size:14px">✅ 数据完整性告警已结案（2026-11-01 · RESOLVED）：康臣 01681.HK 持仓股数（原 1,000 股缺口）— 已核对致富对账单结案</b><br><span style="font-size:13px">致富证券交易纪录（2026-02-05 至 2026-11-01 全区间）仅两笔：2026-02-16 BOUGHT 7,000 @19.34（金额 HKD 135,623.63，交收 02-23）；2026-10-21 SOLD 2,000 @16.1（金额 HKD 32,138.64，交收 10-23）。净持仓 = 5,000 股，无一笔被漏记。原 CFG 记 4,000 股为笔误。</span><br><span class="muted" style="font-size:12px">交叉验证：① 含费均价 = 135,623.63 ÷ 7,000 = 19.3748，与成本基准 19.37 吻合 → 说明成本侧一直正确，错的只是股数；② 买卖费率 0.180% / 0.191% 同量级（港股印花税 0.1% + 交易征费 + 佣金），两笔金额互为印证。<br>候选解释判定：H2 成立（CFG 笔误），H1（漏记卖单）与 H3（买入实为 6,000）均被对账单排除<br><b style="color:var(--warn)">重述影响：康臣持仓 4,000 → 5,000 股（+$1,943.82）；卖出净额 32,200 → 32,138.64（−$7.82）；投资盘 $121,457 → $123,393；MoM −5.19% → −3.68%；USD 累计 −13.77% → −12.39%；RMB 本位 −18.98% → −17.68%。上述为 2026-11-01 股数重述时点的「现金口径」；2026-11-02 引入 IBKR 应计利息（ACT/360）后，各值见正文终值：投资盘 $123,523、MoM −3.63%、USD 累计 −12.30%、RMB 本位 −17.60%。</b></span></div>
     <table>
       <tr><th>验证节点</th><th>状态</th><th>说明</th></tr>
-      <tr><td>IBKR Gateway API</td><td class="warn">⚠️ 10 月月末快照仍缺</td><td>2026-11-02 已实拉新快照：净值 <b>$169,454</b>（现金 $121,919.77 + 持仓 $46,261.12，未实现 −$17,860.92），KAP 754 股 @ 成本 85.0425 与台账一致 → 11 月起账户级可连续；<b>但 10/30 月末快照缺口未补</b>（10 月整月未拉取）→ 账户级 10 月回报与账户级 MaxDD <b>不可算</b>，如实标注（需 PortfolioAnalyst PDF 才能补）</td></tr>
+      <tr><td>IBKR Gateway API</td><td class="pos">✅ 持仓已核对</td><td>2026-11-02 实拉：<b>KAP 754 股 @ 成本 85.0425</b>（LSE IOB，USD）与台账一致。该账户内另有<b>本人私人存款，不属于本组合</b>，故账户净值/现金总额不在本报告披露，账户级回报与账户级 MaxDD 同样不披露（口径见 M3 说明）</td></tr>
       <tr><td>OKX 期权希腊字母</td><td class="pos">✅ 已验证</td><td>opt-summary 公开 API 实拉（2026-08-18；CC 已暂停，仅存档）</td></tr>
       <tr><td>月末收盘价双源交叉</td><td class="pos">✅ 已验证</td><td>KAP：东财 K线 61.20 = 腾讯 ukKAP 61.20（USD 标签一致）；康臣：ifzq 日K 15.25 = qt.gtimg 15.250；BTC：Binance Vision 官方 zip 77,368.77</td></tr>
       <tr><td>独立重算校验</td><td class="pos">✅ 全部通过</td><td>verify_independent.py 外部源重新拉价全盘重算（用户 2026-10-02 强制）：KAP 差 0.00% / 康臣 0.00% / 总值 0.00% / MoM -3.63% ✓ / USD 累计 -12.30% ✓ / 双口径互推闭合 0.00004pp</td></tr>
@@ -325,7 +318,7 @@ details summary { font-size:13px; }
       <tr><td>IBKR 现金利息（应计制）</td><td class="pos">✅ 已重述</td><td>官方 USD 利率 3.13%（8/18–9/16）→ 3.38%（9/17 起），日计数 ACT/360，本金 $19,547 逐日计提；期末应计 <b>$130.04</b> 单列为「IBKR 应计利息」资产。<b>重述：8/31 NAV +$22.09、9/30 NAV +$74.98</b>（此前估值点只含现金余额、未含应计），18 Aug 首个估值日不受影响（当日未计提）</td></tr>
       <tr><td>OKX 余额快照 Hash</td><td class="muted">⏳ 待接入</td><td>每月快照存 SHA-256</td></tr>
       <tr><td>GitHub Commit ID</td><td class="muted">⏳ 待用户手动上传</td><td>暂存目录 output/github_upload_2026-11/；GitHub MCP 只读（403）</td></tr>
-      <tr><td>本页 SHA-256</td><td><span id="hash2">f3122b5f1943260475d4df4d84698de9f622d27db3a5f5af2ccc81bec2ca6eec</span></td><td>每次生成唯一指纹</td></tr>
+      <tr><td>本页 SHA-256</td><td><span id="hash2">a44857775dfda9117e977fc8ca7bbc637b17c48f38fe4381069ac10c2f873511</span></td><td>每次生成唯一指纹</td></tr>
     </table>
   </div>
 
@@ -344,14 +337,14 @@ details summary { font-size:13px; }
   <div class="footer">
     本页为只读展示层，数据来自真实交易记录（IBKR Gateway API / OKX 历史委托单 / tdx 行情）。<br>
     月度快照每月 1 日自动更新并归档哈希，历史版本不可删除。<br>
-    <b>SHA-256 指纹（本页）：</b><span id="hash">f3122b5f1943260475d4df4d84698de9f622d27db3a5f5af2ccc81bec2ca6eec</span>
+    <b>SHA-256 指纹（本页）：</b><span id="hash">a44857775dfda9117e977fc8ca7bbc637b17c48f38fe4381069ac10c2f873511</span>
   </div>
 </div>
 
 <script>
 const allocData = [{"label": "权益 Stock", "value": 55864.0}, {"label": "稳定币 Stable(OKX活期2.75%)", "value": 43886.0}, {"label": "加密 Crypto", "value": 0.0}, {"label": "现金 Cash", "value": 23774.0}];
 const incomeChartData = {"股息": 2411.0, "利息": 102.0, "期权净P&L": -1581};
-const navSeries = {"portfolio": [{"x": "2026-08-18", "y": 122821.0}, {"x": "2026-08-21", "y": 123067.0}, {"x": "2026-08-23", "y": 128279.0}, {"x": "2026-08-31", "y": 132176.0}, {"x": "2026-09-01", "y": 132032.0}, {"x": "2026-09-30", "y": 128177.0}, {"x": "2026-10-07", "y": 128055.0}, {"x": "2026-10-08", "y": 128124.0}, {"x": "2026-10-12", "y": 128338.0}, {"x": "2026-10-13", "y": 126982.0}, {"x": "2026-10-14", "y": 127512.0}, {"x": "2026-10-15", "y": 126719.0}, {"x": "2026-10-16", "y": 128186.0}, {"x": "2026-10-17", "y": 127568.0}, {"x": "2026-10-19", "y": 125460.0}, {"x": "2026-10-20", "y": 125482.0}, {"x": "2026-10-21", "y": 126418.0}, {"x": "2026-10-22", "y": 124059.0}, {"x": "2026-10-23", "y": 123792.0}, {"x": "2026-10-24", "y": 122298.0}, {"x": "2026-10-26", "y": 123346.0}, {"x": "2026-10-27", "y": 125026.0}, {"x": "2026-10-28", "y": 126940.0}, {"x": "2026-10-29", "y": 125622.0}, {"x": "2026-10-30", "y": 123523.0}], "ibkr": [{"x": "2026-08-18", "y": 177585.18}, {"x": "2026-09-02", "y": 178502.13}, {"x": "2026-10-01", "y": 171018.24}, {"x": "2026-11-02", "y": 169453.84}]};
+const navSeries = {"portfolio": [{"x": "2026-08-18", "y": 122821.0}, {"x": "2026-08-21", "y": 123067.0}, {"x": "2026-08-23", "y": 128279.0}, {"x": "2026-08-31", "y": 132176.0}, {"x": "2026-09-01", "y": 132032.0}, {"x": "2026-09-30", "y": 128177.0}, {"x": "2026-10-07", "y": 128055.0}, {"x": "2026-10-08", "y": 128124.0}, {"x": "2026-10-12", "y": 128338.0}, {"x": "2026-10-13", "y": 126982.0}, {"x": "2026-10-14", "y": 127512.0}, {"x": "2026-10-15", "y": 126719.0}, {"x": "2026-10-16", "y": 128186.0}, {"x": "2026-10-17", "y": 127568.0}, {"x": "2026-10-19", "y": 125460.0}, {"x": "2026-10-20", "y": 125482.0}, {"x": "2026-10-21", "y": 126418.0}, {"x": "2026-10-22", "y": 124059.0}, {"x": "2026-10-23", "y": 123792.0}, {"x": "2026-10-24", "y": 122298.0}, {"x": "2026-10-26", "y": 123346.0}, {"x": "2026-10-27", "y": 125026.0}, {"x": "2026-10-28", "y": 126940.0}, {"x": "2026-10-29", "y": 125622.0}, {"x": "2026-10-30", "y": 123523.0}], "ibkr": []};
 const pxKAP = [{"x": "2026-08-18", "y": 73.11}, {"x": "2026-08-23", "y": 70.23}, {"x": "2026-08-31", "y": 74.5}, {"x": "2026-09-01", "y": 74.8}, {"x": "2026-09-30", "y": 63.8}, {"x": "2026-10-12", "y": 63.9}, {"x": "2026-10-13", "y": 62.1}, {"x": "2026-10-14", "y": 62.8}, {"x": "2026-10-16", "y": 64.4}, {"x": "2026-10-19", "y": 61.6}, {"x": "2026-10-20", "y": 61.2}, {"x": "2026-10-21", "y": 62.7}, {"x": "2026-10-22", "y": 60.0}, {"x": "2026-10-23", "y": 59.5}, {"x": "2026-10-26", "y": 60.7}, {"x": "2026-10-27", "y": 62.9}, {"x": "2026-10-28", "y": 65.8}, {"x": "2026-10-29", "y": 64.1}, {"x": "2026-10-30", "y": 61.2}];
 const pxKANG = [{"x": "2026-08-18", "y": 13.33}, {"x": "2026-08-21", "y": 13.6}, {"x": "2026-08-31", "y": 13.53}, {"x": "2026-09-01", "y": 13.52}, {"x": "2026-09-30", "y": 14.84}, {"x": "2026-10-08", "y": 14.85}, {"x": "2026-10-12", "y": 14.85}, {"x": "2026-10-15", "y": 15.39}, {"x": "2026-10-16", "y": 15.68}, {"x": "2026-10-20", "y": 16.04}, {"x": "2026-10-21", "y": 15.72}, {"x": "2026-10-22", "y": 15.21}, {"x": "2026-10-23", "y": 15.38}, {"x": "2026-10-26", "y": 15.6}, {"x": "2026-10-27", "y": 15.63}, {"x": "2026-10-28", "y": 15.2}, {"x": "2026-10-29", "y": 15.14}, {"x": "2026-10-30", "y": 15.25}];
 const pxBTC = [{"x": "2026-08-18", "y": 64221.4}, {"x": "2026-08-23", "y": 77293.7}, {"x": "2026-08-31", "y": 78581.29}, {"x": "2026-09-01", "y": 77937.49}, {"x": "2026-09-30", "y": 83623.6}, {"x": "2026-10-07", "y": 83385.0}, {"x": "2026-10-08", "y": 83488.0}, {"x": "2026-10-12", "y": 83720.0}, {"x": "2026-10-15", "y": 81457.94}, {"x": "2026-10-16", "y": 82366.11}, {"x": "2026-10-17", "y": 81256.05}, {"x": "2026-10-21", "y": 83363.19}, {"x": "2026-10-24", "y": 80614.63}, {"x": "2026-10-30", "y": 77368.77}];
@@ -414,10 +407,9 @@ new Chart(document.getElementById('incomeChart'), {
   options: { plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 10 } } }, cutout: '62%' }
 });
 
-// 净值双线：投资盘逐日（实线）vs IBKR 账户快照（虚线，点稀）
+// 净值为投资盘口径（账户级含私人存款，不出图）
 _mkLine('navChart', [
-  { name: '投资盘估值（逐日·流水重建）', pts: navSeries.portfolio, color: '#f85149', width: 2.5, r: 2 },
-  { name: 'IBKR 账户净值（官方快照）', pts: navSeries.ibkr, color: '#58a6ff', width: 2, r: 5, dash: [6,4] }
+  { name: '投资盘估值（逐日·流水重建）', pts: navSeries.portfolio, color: '#f85149', width: 2.5, r: 2 }
 ], { fmt: _usd0, maxTicks: 8 });
 
 _mkLine('chartKAP', [{ name: 'KAP（USD·LSE IOB）', pts: pxKAP, color: '#58a6ff' }], { fmt: _usd2 });
