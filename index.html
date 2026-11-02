@@ -26,9 +26,11 @@ th { color:var(--muted); font-weight:500; white-space:nowrap; }
 .kpi .l { font-size:12px; color:var(--muted); }
 .oneline { margin-top:12px; padding:10px 14px; background:#1f6feb14; border:1px solid #1f6feb44; border-radius:8px; font-size:13px; }
 .charts { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
-.chart-box canvas { max-height:260px; }
+/* 2026-11-02：maintainAspectRatio:false 需要父级有确定高度，否则 canvas 塌成 0 或无限拉伸 */
+.chart-box canvas { width:100% !important; height:230px !important; }
 .chart-wide { grid-column:1 / -1; }
-.chart-cap { color:var(--muted); font-size:12px; text-align:center; margin-top:6px; }
+.chart-wide canvas { height:300px !important; }
+.chart-cap { color:var(--muted); font-size:12px; text-align:center; margin-top:6px; line-height:1.6; }
 .footer { color:var(--muted); font-size:12px; margin-top:24px; padding:12px; border-top:1px solid var(--border); word-break:break-all; }
 details summary { font-size:13px; }
 </style>
@@ -36,33 +38,44 @@ details summary { font-size:13px; }
 <body>
 <div class="wrap">
   <h1>Chris的AI投研手记 · 投资证据链 <span class="badge" style="display:inline-block;background:#1f6feb22;color:var(--accent);border:1px solid #1f6feb66;padding:2px 10px;border-radius:20px;font-size:12px;margin-left:8px">LP 审阅版 · 只读</span></h1>
-  <div class="sub">月度 Portfolio 报告 · 数据源 IBKR Gateway / OKX API / tdx 真实记录 · 生成于 2026-10-24 11:02 · 汇率（USD/CNY 6.6849, USD/HKD 7.8426，open.er-api）· 成本基准冻结 $140,845（2026-08-18）</div>
+  <div style="margin:10px 0 0 0;font-size:13px">人民币本位版（A 类） · <a href="index-en.html" style="color:var(--accent);text-decoration:none">English edition (USD Class) →</a></div>
+  <div class="sub">月度 Portfolio 报告 · 数据源 IBKR Gateway / OKX API / tdx 真实记录 · 生成于 2026-11-02 10:01 · 汇率（USD/CNY 6.6710, USD/HKD 7.8454，open.er-api 2026-11-01 中间价）· 成本基准冻结 $140,845（2026-08-18）</div>
 
   
   <div class="card">
     <h2>M1 · 高管摘要（Executive Summary）</h2>
-    <div style="margin:0 0 14px 0;padding:14px 16px;background:#f8514914;border:1px solid #f8514966;border-radius:8px"><b style="color:var(--up);font-size:14px">🔴 重大事件 · 2026-10-24</b><br><span style="font-size:13px">DM 信号转 <b>flat</b>，<b>卖出全部 BTC 0.54438727 @ $80,614.63</b>（手续费 0，到账 43,885.58 USDC，OKX 订单 226102410563501266312），转入 OKX 稳定币活期。月内第 5 笔 BTC 往返（10/15 卖 → 10/16 买 → 10/17 卖 → 10/21 买 → 10/24 卖）；本轮（10/21 买→10/24 卖）市值 -3.30%，本笔 flat 信号方向正确（回避了 10/22-24 续跌）。当前：KAP + 康臣 4,000 股 + USDC 活期 + 现金（IBKR+致富），投资盘 RMB 803,826（$120,246）。</span></div>
+    <div style="margin:0 0 14px 0;padding:14px 16px;background:#f8514914;border:1px solid #f8514966;border-radius:8px"><b style="color:var(--up);font-size:14px">🔴 重大事件 · 2026-10-24</b><br><span style="font-size:13px">DM 信号转 <b>flat</b>，<b>卖出全部 BTC 0.54438727 @ $80,614.63</b>（手续费 0，到账 43,885.58 USDC，OKX 订单 226102410563501266312），转入 OKX 稳定币活期。月内第 5 笔 BTC 往返（10/15 卖 → 10/16 买 → 10/17 卖 → 10/21 买 → 10/24 卖）；两段往返摩擦合计 <b>-2,116.09 USDT</b>（10/16→10/17 −619.81 + 10/21→10/24 −1,496.28）。当前（2026-10-30 月末收盘）：KAP + 康臣 <b>5,000 股</b> + USDC 活期 + 现金（IBKR USD + IBKR HKD），投资盘 <b>RMB 824,021（$123,523）</b>。</span></div>
     <div class="kpis">
       <div class="kpi"><div class="l">初始本金（基准本位币 RMB）</div><div class="v">RMB 1,000,000</div></div>
-      <div class="kpi"><div class="l">投资盘净值（现值）</div><div class="v">RMB 803,826<br><span class="muted">≈ $120,246</span></div></div>
-      <div class="kpi"><div class="l">RMB 本位累计盈亏（vs 100 万本金）</div><div class="v neg">-196,174（-19.62%）</div></div>
-      <div class="kpi"><div class="l">USD 运行盈亏（vs 冻结成本 $140,845 · 剔除汇率）</div><div class="v neg">-20,599（-14.63%）</div></div>
+      <div class="kpi"><div class="l">投资盘净值（现值）</div><div class="v">RMB 824,021<br><span class="muted">≈ $123,523</span></div></div>
+      <div class="kpi"><div class="l">RMB 本位累计盈亏（真实购买力 · vs 100 万）</div><div class="v neg">-175,979（-17.60%）</div></div>
+      <div class="kpi" style="border-color:#f8514966"><div class="l">其中 ② 汇率折算效应（⛔ 非投资亏损）</div><div class="v neg">-52,992（-5.30pp）<br><span class="muted">RMB 升值 6.0% · USD/CNY 7.1→6.6710</span></div></div>
+      <div class="kpi"><div class="l">其中 ① 投资损益（锁定 7.1 汇率 · 剔除汇率）</div><div class="v neg">-122,986（-12.30%）<br><span class="muted">= USD 口径 $-17,322（-12.30%，vs 冻结成本 $140,845）</span></div></div>
     </div>
-    <div class="muted" style="font-size:12px;margin-bottom:12px">🔴 <b>双口径必读（2026-10-15 用户指出后新增）</b>：<b>RMB 本位 = 真实购买力</b>（100 万本金 → 现值 RMB 803,826，亏 -19.62%）；<b>USD 运行口径</b>分母 = $140,845（冻结事实，= 8/18 汇率 7.1 下的 100 万 RMB），剔除汇率衡量投资本身。两者差额 ≈ <b>RMB 升值 -6.2% 的折算效应</b>（7.1 → 6.6849），属汇率损益、非投资亏损。成本冻结 $140,845 不随汇率重推导，保证 USD 口径跨月可比。</div>
+    <table>
+      <tr><th>累计亏损分解（加法闭合，无残差）</th><th>RMB</th><th>占本金</th><th>口径</th></tr>
+      <tr><td>RMB 本位累计盈亏（vs 100 万本金）</td><td class="neg">-175,979</td><td>-17.60%</td><td><b>真实购买力</b>（本币计价，可用于个人财务判断）</td></tr>
+      <tr><td>　① 投资损益（本金按 7.1 锁定汇率折 USD 计）</td><td class="neg">-122,986</td><td>-12.30%</td><td>≡ USD 运行口径 $-17,322（-12.30%），<b>唯一可用于衡量投资能力</b></td></tr>
+      <tr><td>　② 汇率折算效应（USD 现值 × 汇率变动）</td><td class="neg">-52,992</td><td>-5.30pp</td><td>123,523 × (6.6710 − 7.1) —— <b>汇率损益，非投资决策所致</b></td></tr>
+      <tr><td class="muted">核对：① + ② − RMB 本位合计</td><td class="muted">+0.00</td><td class="muted">0.00pp</td><td class="muted">恒等式校验（阈值 &lt; RMB 1，超阈即报错退出）</td></tr>
+    </table>
+    <div class="muted" style="font-size:12px;margin-bottom:12px">🔴 <b>双口径必读（2026-10-15 用户指出后新增，2026-11-02 改为加法分解）</b>：<b>RMB 本位 = 真实购买力</b>（100 万本金 → 现值 RMB 824,021，亏 -17.60%）；其中 <b>-5.30pp 是汇率折算</b>——人民币升值 6.0%（USD/CNY 7.1 → 6.6710）令本币计价的美元资产自动缩水，<b>与持仓涨跌无关</b>。剔除汇率后投资本身亏 -12.30%（= USD 口径）。成本冻结 $140,845（= 8/18 汇率 7.1 下的 100 万 RMB），<b>不随汇率重推导</b>，保证跨月可比。</div>
     <table>
       <tr><th>本月核心 KPI</th><th>数值</th><th>口径</th></tr>
-      <tr><td>MoM%（本月回报）</td><td><span class='neg'>-6.14%</span></td><td><b>投资盘口径</b>：月初（9/30 收盘）vs 当前（月中更新）—— KAP 754 股 + 康臣 7,000 股 + BTC 期初 0.56454 → 已清仓 + OKX 活期 USDT 43,886 + 投资用现金</td></tr>
-      <tr><td>IBKR 账户净值（参考，非投资盘口径）</td><td><span class='neg'>-3.70%</span></td><td>账户净值快照首尾差（3 个快照）；含非投资用现金，<b>不可与上项混用</b></td></tr>
+      <tr><td>MoM%（本月回报）</td><td><span class='neg'>-3.63%</span></td><td><b>投资盘口径</b>：上月末（2026-09-30 收盘）vs 本月末（2026-10-30 收盘）；现金本金冻结 $19,547，含 IBKR 推定应计利息（ACT/360）及 OKX 活期实收利息 —— KAP 754 股 + 康臣 月初 7,000 股（月末 5,000，10/21 减 2,000）+ BTC 期初 0.56454 → 已清仓 + OKX 活期 USDC 43,886 + 投资用现金 + IBKR 港币现金 + IBKR 应计利息</td></tr>
+      <tr><td>IBKR 账户净值（参考，非投资盘口径）</td><td><span class='neg'>-4.58%</span></td><td>账户净值快照首尾差（4 个快照）；含非投资用现金，<b>不可与上项混用</b></td></tr>
       <tr><td>YTD%（年内累计）</td><td><span class="muted">待积累</span></td><td>需年初净值基准</td></tr>
-      <tr><td>已实现现金收入</td><td>≈ $932</td><td>股息+利息 $2,513 + 期权净 P&L $-1,581（含强平亏损，文档口径），全部折算 USD</td></tr>
+      <tr><td>已实现现金收入</td><td>≈ $932</td><td>含 inception 前收入，不计入业绩；股息+利息 $2,513 + 期权净 P&L $-1,581（含强平亏损，文档口径），全部折算 USD</td></tr>
     </table>
     <table>
       <tr><th>双基准对比</th><th>组合 NAV</th><th>恒生指数 HSI</th><th>标普 500</th></tr>
-      <tr><td>同期表现</td><td><span class='neg'>-6.14%</span></td><td>25,471（日 +0.07%）</td><td>7,745（日 -0.52%）</td></tr>
+      <tr><td>同期表现</td><td><span class='neg'>-3.63%</span></td><td>23,294（月末收盘）</td><td>7,580（月末收盘）</td></tr>
     </table>
-    <div class="oneline">📝 一句话复盘：投资盘 2026-10 月内至今回报 -6.14%（$128,107 9/30 收盘 → $120,246 当前，月中更新口径）；分项：KAP -6.7% / 康臣 +3.6% / BTC -3.6%；重大事件：10/15 DM 讯号 flat，严格按量化模型卖出全部 BTC 0.56454172 @ $81,457.94（手续费 0）→ 45,986.41 USDT 转入 OKX 活期（2.75% 年利率）；累计盈亏：<b>RMB 本位 -19.62%</b>（真实购买力），USD 口径 -14.63%（剔除汇率，差额 = RMB 升值 -6.2% 折算效应）。</div>
-    <h3 style="font-size:14px;color:var(--accent);margin-top:14px">▎复盘结论（用户拍板原话 · 2026-10-02 Review）</h3>
-    <div style="margin:8px 0;padding:12px 14px;background:#3fb95014;border:1px solid #3fb9466;border-radius:8px"><b>① KAP · HOLD_WITH_REASON（2026-10-02）</b> — 美债息率上升影响估值，Beta 问题。基本面 stable，继续持股。<br><span class="muted" style="font-size:12px">数据锚：现价 $59.50 vs 观察线 $65（较成本 -30.0%）。观察线 = 触发必须 Review，非止损线；本次 Review 已按纪律完成落库。</span></div><div style="margin:8px 0;padding:12px 14px;background:#d2992214;border:1px solid #d2992266;border-radius:8px"><b>② 康臣药业 · 风险更新（2026-10-02 · 风险排名 #1）</b> — 基本面 stable。药业板块趋势向上。非奈利酮三重升级——中国 nd-CKD 申请已获 CDE 受理 + FDA 批 T1D-CKD 新适应症 + 国内专家共识/临床实操已扩散至非糖尿病人群。威胁观察期从 2027H2 前移至即时，nd-CKD 获批 = 直接进尿毒清基本盘，已列为风险 #1。<br><span class="muted" style="font-size:12px">数据锚：现价 HK$15.38（较成本 -20.6%），观察线 HK$12 未触发。非奈利酮威胁进入观察期 = 后续每月复盘固定检查项。</span></div><div style="margin:8px 0;padding:12px 14px;background:#1f6feb14;border:1px solid #1f6feb66;border-radius:8px"><b>③ BTC · 策略状态（2026-10-16）</b> — 今日信号反转 long，又买回 BTC 了。买入 0.55835744 BTC @ 82,366.11 USDT（手续费 0，支付 45,989.73），资金来自赎回 10/15 活期存款本金+利息。<br><span class="muted" style="font-size:12px">数据锚：已全部清仓（10/15 成交 0.56454172 BTC @ $81,457.94，手续费 0）→ 45,986.41 USDT 活期 2.75% 年利率。CC 策略维持暂停。</span></div>
+    <div class="oneline">📝 一句话复盘：投资盘 2026-10 月回报 <b>-3.63%</b>（$128,177 2026-09-30 收盘 → $123,523 2026-10-30 收盘，月末终值口径）；分项价格：KAP -4.1% / 康臣 +2.8% / BTC -7.5%；重大事件：2026-10-24 DM 信号 flat 清仓全部 BTC 0.54438727 @ $80,614.63（月内 5 笔往返，摩擦 −2,116.09 USDT）；累计盈亏：<b>RMB 本位 -17.60%</b>（真实购买力）= 投资损益 -12.30% + 汇率折算 -5.30pp（RMB 升值 6.0%，USD/CNY 7.1→6.6710，⛔ 非投资亏损）；<b>剔除汇率的投资本身 -12.30%</b>（≡ USD 口径 -12.30%，vs 冻结成本 $140,845）。</div>
+    <h3 style="font-size:14px;color:var(--accent);margin-top:16px">▎本月解读（管理人观点 · 本期）</h3>
+    <div style="margin:12px 0;padding:12px 14px;background:#1f6feb0d;border:1px solid #1f6feb44;border-radius:8px"><b>本月解读（用户口径 · 截至 2026-10-30）</b><div style="margin:10px 0 0 0"><b>① KAP · 核燃料</b><br><span style="font-size:13px;line-height:1.7">KAP 本月下跌主要是 beta，不是个股逻辑：核电是本期表现最好的板块，KAP 跑输说明这是估值（久期）事件，不是盈利事件。市场尚未对「现货涨、合约价不涨」这条空头说法定价——而该说法与历史事实不符：合约价对现货的传导是滞后 2–4 个季度，而非脱钩。空头另一条腿（俄罗斯大概率继续供应硫酸）我们认可，其作用是缓解放射性转化环节的短期紧张，不改变多年期合约周期。维持 754 股不动；月末观察线再次触发（月内曾反弹至 10/28 的 65.80 后回落），已于 11/01 按纪律完成 Review：评级观望、维持 754 股不加仓；再入场须「价格确认 + 俄酸 2027 落地」同时满足。</span></div><div style="margin:10px 0 0 0"><b>② 康臣药业 · 基本面向好</b><br><span style="font-size:13px;line-height:1.7">康臣基本面向好，估值继续修复：月内 14.84 → 15.25 港元（+2.8%）。10/21 以 16.10 港元沽出 2,000 股（较当日收盘溢价 2.4%，净额 32,138.64 港元，费用 61.36），底仓 5,000 股保留（含费成本 19.37 港元）。非奈利酮威胁期已前移至即时，传导路径是尿毒清提前承压——CDE 审评进度与尿毒清月度销售列为固定检查项。</span></div><div style="margin:10px 0 0 0"><b>③ BTC · 量化信号与事件</b><br><span style="font-size:13px;line-height:1.7">量化模型信号让 BTC 逃过了币安事件：10/24 卖出 0.54438727 BTC @ 80,614.63（手续费 0），月末收 77,368.77，较卖出价再跌 4.0%。须诚实标注：月内 5 笔往返、两段摩擦合计 −2,116.09 USDT，其中两次为踏空——单次躲过事件不构成 alpha 证据。</span></div><div class="muted" style="font-size:12px;margin-top:8px">以上为管理人观点 [INF]，非已核实事实；持仓数据见 M2/M3，交易明细见 M4。</div></div>
+    <h3 style="font-size:14px;color:var(--accent);margin-top:16px">▎复盘结论（用户拍板原话 · 2026-10-02 Review）</h3>
+    <div style="margin:8px 0;padding:12px 14px;background:#3fb95014;border:1px solid #3fb9466;border-radius:8px"><b>① KAP · 观察线连续第 2 月触发 → 已复核：维持持有（不加仓） · 评级 观望（2026-11-01）</b> — 背离的机制已查清：铀矿股被当成高久期流动性资产在定价，不是当成铀价资产。结论是流动性冲击（liquidity shock），不是论点破裂（broken thesis）。基本面同时在往反方向走：EGM 否掉俄方合同（去俄化超预期）、国家战略铀储备、长协 $96.50 创记录、现货 +4%。维持观望、维持 754 股不动。<br><span class="muted" style="font-size:12px">数据锚：月末收盘 $61.20 vs 观察线 $65（较成本 -28.0%），月内曾反弹至 10/28 的 $65.80 后回落。观察线 = 触发必须 Review，非止损线；本次 Review 已按纪律完成落库。 Review 全文已归档：<b><a href="research/kap_october_review_2026-11-01.html" style="color:var(--accent)">research/kap_october_review_2026-11-01.html</a></b>（<a href="research/kap_october_review_2026-11-01-en.html" style="color:var(--accent)">English edition</a>）。</span><br><b>再入场条件（A 且 B，须同时满足；十月已收紧，不再接受"三选二"）</b>：A 价格确认 — Weekly close above MA50 (USD 67.27) and holds for two consecutive weeks; or reclaim MA20 (USD 62.94) and hold on the retest；B 硬变量 — 2027 sulfuric-acid contract signed, and the 2027 production guidance not cut (or explicitly maintained in the Q3 update)。<br><b>否决条件</b>（触发即由"观望"降为"回避"）：Downgrade from Watch to Avoid if the 2027 production guidance is cut and the FY2026 dividend is reduced in the same period.</div><div style="margin:8px 0;padding:12px 14px;background:#d2992214;border:1px solid #d2992266;border-radius:8px"><b>② 康臣药业 · 风险更新（2026-10-02 · 风险排名 #1）</b> — 基本面 stable。药业板块趋势向上。非奈利酮三重升级——中国 nd-CKD 申请已获 CDE 受理 + FDA 批 T1D-CKD 新适应症 + 国内专家共识/临床实操已扩散至非糖尿病人群。威胁观察期从 2027H2 前移至即时，nd-CKD 获批 = 直接进尿毒清基本盘，已列为风险 #1。<br><span class="muted" style="font-size:12px">数据锚：现价 HK$15.25（较成本 -21.3%），观察线 HK$12 未触发。非奈利酮威胁进入观察期 = 后续每月复盘固定检查项。</span></div><div style="margin:8px 0;padding:12px 14px;background:#1f6feb14;border:1px solid #1f6feb66;border-radius:8px"><b>③ BTC · 策略状态（2026-10-24）</b> — DM 信号转 flat（10/24 上午），严格按量化模型卖出全部 BTC 0.54438727 @ 80,614.63 USDC（手续费 0，到账 43,885.58 USDC）。<br><span class="muted" style="font-size:12px">数据锚：已全部清仓（10/24 成交 0.54438727 BTC @ $80,614.63，手续费 0，到账 43,885.58 USDC）；月内 5 笔 DM 往返，两段往返摩擦合计 −2,116.09 USDT；月末 BTC 收 $77,368.77（较 10/24 卖出价再跌 4.0%，flat 信号方向正确）。CC 策略维持暂停。</span></div>
   </div>
 
   
@@ -70,22 +83,22 @@ details summary { font-size:13px; }
     <h2>M2 · 风险与暴露（Risk &amp; Exposure）</h2>
     <table>
       <tr><th>持仓集中度看板</th><th>市值</th><th>占比</th><th>状态</th></tr>
-      <tr><td>Top 1 · KAP</td><td>$44,863</td><td>37.3%</td><td class="warn">⚠️ &gt;30% 集中度预警</td></tr><tr><td>Top 2 · OKX活期USDT</td><td>$43,886</td><td>36.5%</td><td class="">正常</td></tr><tr><td>Top 3 · 投资用现金</td><td>$19,547</td><td>16.3%</td><td class="">正常</td></tr>
-      <tr><td>Top 3 合计</td><td>—</td><td>90.1%</td><td class="warn">高集中</td></tr>
+      <tr><td>Top 1 · KAP</td><td>$46,145</td><td>37.4%</td><td class="warn">⚠️ &gt;30% 集中度预警</td></tr><tr><td>Top 2 · OKX活期USDT</td><td>$43,886</td><td>35.5%</td><td class="">正常</td></tr><tr><td>Top 3 · 投资用现金</td><td>$19,547</td><td>15.8%</td><td class="">正常</td></tr>
+      <tr><td>Top 3 合计</td><td>—</td><td>88.7%</td><td class="warn">高集中</td></tr>
     </table>
     <table>
       <tr><th>资产配置</th><th>金额</th><th>占比</th></tr>
-      <tr><td>权益 Stock（KAP+康臣）</td><td>$52,707</td><td>43.8%</td></tr>
-      <tr><td>稳定币 Stable（OKX 活期 USDT · 2.75% 年利率）</td><td>$43,886</td><td>36.5%</td></tr>
+      <tr><td>权益 Stock（KAP+康臣）</td><td>$55,864</td><td>45.2%</td></tr>
+      <tr><td>稳定币 Stable（OKX 活期 USDT · 2.75% 年利率）</td><td>$43,886</td><td>35.5%</td></tr>
       <tr><td>加密 Crypto（BTC）</td><td>$0</td><td>0.0%</td></tr>
-      <tr><td>现金 Cash（投资盘）</td><td>$23,653</td><td>19.7%</td></tr>
+      <tr><td>现金 Cash（投资盘）</td><td>$23,774</td><td>19.2%</td></tr>
     </table>
     <div style="margin:8px 0;padding:10px 12px;background:#1f6feb14;border:1px solid #1f6feb66;border-radius:8px;font-size:13px">
       <b style="color:var(--accent)">🛑 当前无 CC 持仓（8/21 强平后策略已暂停）</b> — 下表为 8/21 强平前最后持仓（68000-C）的风险数据，仅供参考
     </div>
     <table>
       <tr><th>BTC Option 风险暴露（强平前持仓：卖 Call 68000C · 2026-08-28 到期）</th><th>数值</th><th>含义</th></tr>
-      <tr><td>现价 vs 行权价（强平前）</td><td>$80,615 vs $68,000</td><td>BTC 已大幅超过行权价（强平原因），距离为负</td></tr>
+      <tr><td>现价 vs 行权价（强平前）</td><td>$77,369 vs $68,000</td><td>BTC 已大幅超过行权价（强平原因），距离为负</td></tr>
       <tr><td>Delta（持仓）</td><td>-0.098</td><td>每 $1 BTC 涨跌 ≈ 0.098 BTC 对冲敞口</td></tr>
       <tr><td>Gamma</td><td>3.81</td><td>逼近行权价时敞口非线性放大</td></tr>
       <tr><td>Theta（时间价值收入）</td><td>+0.000385</td><td>每持有一天收取的时间价值（币本位）</td></tr>
@@ -96,11 +109,14 @@ details summary { font-size:13px; }
   <div class="card">
     <h2>资产配置可视化</h2>
     <div class="charts">
-      <div class="chart-box"><canvas id="allocChart"></canvas><div class="chart-cap">资产类别（Stock/Crypto/Cash）</div></div>
+      <div class="chart-box"><canvas id="allocChart"></canvas><div class="chart-cap">资产类别（Stock/Stable/Crypto/Cash）</div></div>
       <div class="chart-box"><canvas id="incomeChart"></canvas><div class="chart-cap">收入来源（USD 等值）</div></div>
-      <div class="chart-box chart-wide"><canvas id="navChart"></canvas><div class="chart-cap">组合净值走势（投资盘估值 vs IBKR 账户净值，USD · 两口径不可混用）</div></div>
-      <div class="chart-box chart-wide"><canvas id="priceChart"></canvas><div class="chart-cap">标的价格走势（收盘价 · KAP 为 USD）</div></div>
+      <div class="chart-box chart-wide"><canvas id="navChart"></canvas><div class="chart-cap">组合净值走势（USD）· <b>投资盘逐日估值</b>（实线，由成交流水重建持仓，含 OKX 现金与 IBKR 港币现金）vs <b>IBKR 账户净值</b>（虚线，官方快照，最新止于 2026-11-02）· 两口径含不同现金范围，<b>不可混用</b></div></div>
+      <div class="chart-box"><canvas id="chartKAP"></canvas><div class="chart-cap">KAP（USD · LSE IOB）</div></div>
+      <div class="chart-box"><canvas id="chartKANG"></canvas><div class="chart-cap">康臣 01681（HKD）</div></div>
+      <div class="chart-box"><canvas id="chartBTC"></canvas><div class="chart-cap">BTC（USDT · 10/24 清仓后无持仓）</div></div>
     </div>
+    <div class="muted" style="font-size:12px;margin-top:10px">📌 <b>图表口径（2026-11-02 重做）</b>：①每张价格图<b>独立 Y 轴</b>——旧版把 KAP（$61）、康臣（HK$15）、BTC（$77,000）三条线塞进同一纵轴，两个低价品种被压成贴轴直线，已废弃；②净值线由<b>成交流水逐日重建</b>（含 10/16、10/17、10/21 三次 BTC 往返与 10/21 康臣减仓），已与 M3 的 MoM 基准闭合（2026-10-30 收盘 $123,523）；③缺失交易日按<b>最后可得收盘价</b>估值（mark-to-last-close）；④OKX 活期利息 USD 15.26 于期末一次性计入。</div>
   </div>
 
   
@@ -108,29 +124,34 @@ details summary { font-size:13px; }
     <h2>M3 · 业绩与归因（Performance &amp; Attribution）</h2>
     <table>
       <tr><th>双基准对比</th><th>组合 NAV</th><th>恒生指数 HSI</th><th>标普 500</th></tr>
-      <tr><td>月度</td><td><span class='neg'>-6.14%</span></td><td>25,471（日 +0.07%）</td><td>7,745（日 -0.52%）</td></tr>
+      <tr><td>月度</td><td><span class='neg'>-3.63%</span></td><td>23,294（月末收盘）</td><td>7,580（月末收盘）</td></tr>
       <tr><td>YTD</td><td class="muted">待积累</td><td class="muted">待接入</td><td class="muted">待接入</td></tr>
     </table>
     <table>
       <tr><th>Brinson 归因（简化版 · 按资产类别）</th><th>说明</th><th>状态</th></tr>
-      <tr><td>资产配置效应</td><td>偏好 Crypto(0%)/资源品 KAP(37%)/港股医药(7%) 的类别选择收益</td><td class="muted">待 3 个月数据后计算</td></tr>
+      <tr><td>资产配置效应</td><td>偏好 Crypto(0%)/资源品 KAP(37%)/港股医药(8%) 的类别选择收益</td><td class="muted">待 3 个月数据后计算</td></tr>
       <tr><td>择时/选股效应</td><td>BTC Covered Call 择时、买入点位带来的 Alpha</td><td class="muted">待 3 个月数据后计算</td></tr>
     </table>
     <table>
-      <tr><th>本月分项贡献（投资盘口径）</th><th>期初价</th><th>期末价</th><th>涨跌</th></tr>
-      <tr><td>KAP.L（754 股 · USD，LSE IOB）</td><td>$63.80</td><td>$59.50</td><td class="neg">-6.74%</td></tr>
-      <tr><td>康臣 01681（7,000 股 · HKD）</td><td>HK$14.84</td><td>HK$15.38</td><td class="pos">+3.64%</td></tr>
-      <tr><td>BTC（期初 0.56454 · USD）</td><td>$83,624</td><td>$80,615<br><span class="muted" style="font-size:11px">10/15 已全部卖出 @ $81,457.94</span></td><td class="pos">-3.60%</td></tr>
-      <tr><td>OKX 活期 USDT（10/15 起 · 2.75% 年利率）</td><td>—</td><td>$43,885.58</td><td class="muted">资产置换（BTC 变现）</td></tr>
-      <tr><td><b>投资盘合计</b></td><td><b>$128,107</b></td><td><b>$120,246</b></td><td class="neg"><b>-6.14%</b></td></tr>
+      <tr><th>本月分项贡献（投资盘口径 · 价格效应）</th><th>期初价</th><th>期末价</th><th>价格涨跌</th><th>对组合贡献</th></tr>
+      <tr><td>KAP.L（754 股 · USD，LSE IOB）</td><td>$63.80</td><td>$61.20</td><td class="neg">-4.08%</td><td class="neg">−1,960（754 股 × 价差 $-2.60）</td></tr>
+      <tr><td>康臣 01681 · 持有 5,000 股</td><td>HK$14.84</td><td>HK$15.25</td><td class="pos">+2.76%</td><td class="pos">+261（5,000 股 × 价差 HK$+0.41）</td></tr>
+      <tr><td>康臣 01681 · 10/21 减仓 2,000 股</td><td>HK$14.84</td><td>HK$16.10 <span class="muted" style="font-size:11px">（卖出价，已扣费 HK$61.36）</span></td><td class="pos">+8.49%</td><td class="pos">+313（2,000 股 × HK$+1.26 − 费 HK$61.36）</td></tr>
+      <tr><td>BTC（期初 0.56454 · 已清仓）</td><td>$83,624</td><td>$77,369<br><span class="muted" style="font-size:11px">10/24 清仓 @ $80,614.63</span></td><td class="neg">-7.48%</td><td class="neg">−3,323（清仓所得 USDC − 期初市值，含活期利息）</td></tr>
+      <tr><td>IBKR 现金应计利息 <span class="muted" style="font-size:11px">（应计制 · ACT/360）</span></td><td>$74.98</td><td>$130.04</td><td class="muted">利率分段</td><td class="pos">+55.06（本月日计提累加）</td></tr>
+      <tr><td><b>投资盘合计</b></td><td><b>$128,177</b></td><td><b>$123,523</b></td><td class="neg"><b>-3.63%</b></td><td class="neg"><b>−4,654</b></td></tr>
     </table>
-    <div class="muted" style="font-size:12px">分项为价格变动贡献；投资盘合计含投资用现金（冻结 $19,547）与 OKX 活期 USDT。月中更新口径（月初 9/30 收盘 vs 当前实时），正式月末对比以 11/1 自动化月报为准。价格源：Binance Vision / 东财 LSE（KAP，USD）/ 腾讯行情（康臣，HKD）/ OKX 成交价（BTC 10/15）。</div>
+    <div style="margin:8px 0;padding:10px 12px;background:#d2992214;border:1px solid #d2992266;border-radius:8px;font-size:12.5px">
+      <b style="color:var(--warn)">⚠️ 分项口径说明（防误读）</b>：上表按<b>价格效应</b>拆解（减仓行按卖出净额计，已扣费），五行之和 −4,654，与组合合计 −4,654 的差额 <b>+0</b> 为四舍五入，<b>无未解释残差</b>。若按「市值直接相减」口径，清仓/减仓月份会出现 −41%、−100% 这类数字，全部是<b>仓位效应</b>而非亏损，已弃用该失真口径。
+    </div>
+    <div class="muted" style="font-size:12px">分项为价格变动贡献；投资盘合计含投资用现金（冻结 $19,547）、OKX 活期 USDC 与 IBKR 港币现金（HKD 32,138.64，康臣减仓净额，2026-11-01 由致富调回 IBKR 收息）。<b>月末终值口径</b>（2026-09-30 收盘 vs 2026-10-30 收盘），全部为已收盘价，非盘中实时价。价格源：Binance Vision（BTC 10/30）/ 东财 LSE + 腾讯 ukKAP 交叉（KAP，USD）/ 腾讯 ifzq 日K + qt.gtimg 交叉（康臣，HKD）。</div>
     <table>
       <tr><th>风险调整指标（账户级 · Roadmap 2026-09-03 已实现）</th><th>数值</th><th>口径</th></tr>
-      <tr><td>Sharpe Ratio</td><td>-9.68</td><td rowspan="4" style="font-size:12px" class="muted">⚠️ 样本 = 2 个收益区间（3 个快照点 / 44 天），统计意义极低，仅为机制基线；年化放大噪声（区间总收益 -3.70% → 年化 -26.8%），数值随月度净值快照积累自动精确化。rf = IBKR 3.13%</td></tr>
-      <tr><td>Sortino Ratio</td><td>-11.28</td></tr>
-      <tr><td>Calmar Ratio</td><td>-6.40</td></tr>
-      <tr><td>Max Drawdown（账户级 · 3 点快照）</td><td><span class='neg'>-4.19%</span></td></tr>
+      <tr><td colspan="3" style="background:#fef3c7;color:#92400e;font-size:12px;font-weight:700;line-height:1.55">⚠️ 账户级口径（含非投资盘现金），<u>非投资盘业绩</u>；样本 4 点，不具统计意义；<b>对外以英文版为准</b>——投资盘按 GIPS 2020 不满 36 个月不披露（4.A.1.j），不满 1 年不年化（2.A.12）</td></tr>
+      <tr><td>Sharpe Ratio</td><td>-11.56</td><td rowspan="4" style="font-size:12px" class="muted">⚠️ 样本 = 3 个收益区间（4 个快照点 / 76 天），统计意义极低，仅为机制基线；年化放大噪声（区间总收益 -4.58% → 年化 -20.2%），数值随月度净值快照积累自动精确化。rf = IBKR 3.13%→3.38%</td></tr>
+      <tr><td>Sortino Ratio</td><td>-11.52</td></tr>
+      <tr><td>Calmar Ratio</td><td>-3.98</td></tr>
+      <tr><td>Max Drawdown（账户级 · 4 点快照）</td><td><span class='neg'>-5.07%</span></td></tr>
     </table>
     <table>
       <tr><td>Alpha / Beta</td><td class="muted">待积累</td><td>需基准指数数据</td></tr>
@@ -171,7 +192,7 @@ details summary { font-size:13px; }
         </tr><tr>
           <td>2026-10-21</td><td>01681.HK</td><td>卖出</td>
           <td>2,000.0000</td><td>16.1000</td><td>HKD</td>
-          <td class="logic">沽出康臣 2,000 股 @ HKD 16.10，底仓 4,000 股。依据：①量化信号 CLV +0.378 收高位、次日概率偏弱（16 买入次日或回 15.5）；②非奈利酮威胁观察期由 2027H2 前移至即时，尿毒清或提早承压。当日收盘 15.72，卖出价较收盘高 2.4%。实现亏损 = (16.10-19.37)×2000 = -6,540 HKD（vs 成本 19.37）；所得 HKD 32,200 留存致富账户计入投资盘</td>
+          <td class="logic">沽出康臣 2,000 股 @ HKD 16.10，底仓 5,000 股。依据：①量化信号 CLV +0.378 收高位、次日概率偏弱（16 买入次日或回 15.5）；②非奈利酮威胁观察期由 2027H2 前移至即时，尿毒清或提早承压。当日收盘 15.72，卖出价较收盘高 2.4%。实现亏损 = (16.10-19.37)×2000 − 费 61.36 = -6,601 HKD（vs 含费成本 19.37）；所得净额 HKD 32,138.64，2026-11-01 由致富调回 IBKR 收息，计入投资盘。【2026-11-01 核对对账单】原记『底仓 4,000 股』有误，实为 7,000−2,000=5,000 股；原记金额 32,200 为毛额，净额为 32,138.64。</td>
         </tr><tr>
           <td>2026-10-24</td><td>BTC-USDC</td><td>卖出</td>
           <td>0.5444</td><td>80,614.6300</td><td>USDC</td>
@@ -250,8 +271,8 @@ details summary { font-size:13px; }
     <h3 style="font-size:14px;color:var(--accent);margin-top:16px">▎逻辑观察线（用户批准 2026-08-18 · 2026-08-23 强平血训后更新 · 非硬止损）</h3>
     <table>
       <tr><th>标的</th><th>现价</th><th>观察线</th><th>距观察线</th><th>状态</th></tr>
-      <tr><td>KAP</td><td>$59.50</td><td>&lt; $65</td><td>92%</td><td class="warn"><b>🔴 已触发 → ✅ 已 Review（HOLD_WITH_REASON · 2026-10-02）：继续持股，理由见下方 Review 结论</b></td></tr>
-      <tr><td>康臣药业</td><td>HKD 15.38</td><td>&lt; HKD 12</td><td>128%</td><td class="pos">正常</td></tr>
+      <tr><td>KAP</td><td>$61.20</td><td>&lt; $65</td><td>94%</td><td class="warn"><b>🔴 已触发 → ✅ 已 Review（HOLD_WITH_REASON · 2026-11-01）：继续持股，理由见下方 Review 结论</b></td></tr>
+      <tr><td>康臣药业</td><td>HKD 15.25</td><td>&lt; HKD 12</td><td>127%</td><td class="pos">正常</td></tr>
     </table>
     <div class="muted" style="font-size:12px;margin-top:8px">触发观察线 → 自动进入复盘 review（不自动卖出，但必须重新论证持有逻辑）。KAP/康臣买入逻辑见 trades 表决策逻辑。</div>
     <h3 style="font-size:14px;color:var(--accent);margin-top:16px">▎全年 CC 总账（2026-04 ~ 08/21）</h3>
@@ -276,9 +297,10 @@ details summary { font-size:13px; }
     <h2>收入记录（股息 + 利息 + 权利金）</h2>
     <table>
       <tr><th>日期</th><th>来源</th><th>类型</th><th>金额</th><th>USD 等值</th></tr>
-      <tr><td>2026-07-14</td><td>KAP.L</td><td>股息</td><td>2,058.24 USD</td><td>≈$2,058</td></tr><tr><td>2026-07-15</td><td>01681.HK</td><td>股息</td><td>2,769.50 HKD</td><td>≈$353</td></tr><tr><td>2026-08-01</td><td>IBKR-CASH</td><td>利息</td><td>50.99 USD</td><td>≈$51</td></tr><tr><td>2026-09-01</td><td>IBKR-CASH</td><td>利息</td><td>50.99 USD</td><td>≈$51</td></tr><tr><td>2026-04~08</td><td>OKX</td><td>期权净 P&L（币本位，含强平）</td><td>-0.023958 BTC</td><td>≈$-1,581</td></tr><tr><td colspan=4 style='text-align:right;font-weight:600;color:var(--accent)'>已实现收入合计（USD 统一折算）</td><td style='font-weight:600;color:var(--accent)'>≈ $932</td></tr>
+      <tr><td>2026-07-14 <span class="muted" style="font-size:11px">（inception 前）</span></td><td>KAP.L</td><td>股息</td><td>2,058.24 USD</td><td>≈$2,058</td></tr><tr><td>2026-07-15 <span class="muted" style="font-size:11px">（inception 前）</span></td><td>01681.HK</td><td>股息</td><td>2,769.50 HKD</td><td>≈$353</td></tr><tr><td>2026-08-01 <span class="muted" style="font-size:11px">（inception 前）</span></td><td>IBKR-CASH</td><td>利息</td><td>50.99 USD</td><td>≈$51</td></tr><tr><td>2026-09-01</td><td>IBKR-CASH</td><td>利息</td><td>50.99 USD</td><td>≈$51</td></tr><tr><td>2026-04~08 <span class="muted" style="font-size:11px">（inception 前）</span></td><td>OKX</td><td>期权净 P&L（币本位，含强平）</td><td>-0.023958 BTC</td><td>≈$-1,581</td></tr><tr><td colspan=4 style='text-align:right;font-weight:600;color:var(--accent)'>已实现收入合计（USD 统一折算）</td><td style='font-weight:600;color:var(--accent)'>≈ $932</td></tr>
     </table>
-    <div class="muted" style="font-size:12px;margin-top:8px">注: 康臣股息率 5.49%（tdx 每股 0.73 HKD），KAP 股息率 2.93%（2025 末期息 2.344 USD/股），IBKR 现金利息 3.13%（官方 2026-08-07，口径=只计投资盘现金 $19,547）。权利金以 BTC 结算（币本位）。估算值以 IBKR/公司公告为准。</div>
+    <div class="muted" style="font-size:12px;margin-top:8px">⚠️ 口径提示：本表为<b>现金收付台账</b>（含 inception 前收入），与 NAV 应计口径不同；NAV 口径的利息见上方 M3 分项「IBKR 现金应计利息」行，成立以来累计 <b>$130.04</b>（ACT/360 逐日计提）。</div>
+    <div class="muted" style="font-size:12px;margin-top:8px">注: 康臣股息率 5.49%（tdx 每股 0.73 HKD），KAP 股息率 2.93%（2025 末期息 2.344 USD/股），IBKR 现金利息 3.13%（至 9/16）→ 3.38%（9/17 起，美联储 9/16 加息后 IBKR 同步调整），口径=只计投资盘现金 $19,547。权利金以 BTC 结算（币本位）。估算值以 IBKR/公司公告为准。</div>
   </div>
 
   <div class="card">
@@ -292,13 +314,18 @@ details summary { font-size:13px; }
   
   <div class="card">
     <h2>M5 · 审计与存证（Audit &amp; Proof）</h2>
+    <div style="margin:10px 0;padding:14px 16px;background:#3fb95014;border:1px solid #3fb95066;border-radius:8px"><b style="color:var(--pos);font-size:14px">✅ 数据完整性告警已结案（2026-11-01 · RESOLVED）：康臣 01681.HK 持仓股数（原 1,000 股缺口）— 已核对致富对账单结案</b><br><span style="font-size:13px">致富证券交易纪录（2026-02-05 至 2026-11-01 全区间）仅两笔：2026-02-16 BOUGHT 7,000 @19.34（金额 HKD 135,623.63，交收 02-23）；2026-10-21 SOLD 2,000 @16.1（金额 HKD 32,138.64，交收 10-23）。净持仓 = 5,000 股，无一笔被漏记。原 CFG 记 4,000 股为笔误。</span><br><span class="muted" style="font-size:12px">交叉验证：① 含费均价 = 135,623.63 ÷ 7,000 = 19.3748，与成本基准 19.37 吻合 → 说明成本侧一直正确，错的只是股数；② 买卖费率 0.180% / 0.191% 同量级（港股印花税 0.1% + 交易征费 + 佣金），两笔金额互为印证。<br>候选解释判定：H2 成立（CFG 笔误），H1（漏记卖单）与 H3（买入实为 6,000）均被对账单排除<br><b style="color:var(--warn)">重述影响：康臣持仓 4,000 → 5,000 股（+$1,943.82）；卖出净额 32,200 → 32,138.64（−$7.82）；投资盘 $121,457 → $123,393；MoM −5.19% → −3.68%；USD 累计 −13.77% → −12.39%；RMB 本位 −18.98% → −17.68%。上述为 2026-11-01 股数重述时点的「现金口径」；2026-11-02 引入 IBKR 应计利息（ACT/360）后，各值见正文终值：投资盘 $123,523、MoM −3.63%、USD 累计 −12.30%、RMB 本位 −17.60%。</b></span></div>
     <table>
       <tr><th>验证节点</th><th>状态</th><th>说明</th></tr>
-      <tr><td>IBKR Gateway API</td><td class="pos">✅ 已验证</td><td>127.0.0.1:4001 自动快照（净值/持仓/KAP 市值）</td></tr>
-      <tr><td>OKX 期权希腊字母</td><td class="pos">✅ 已验证</td><td>opt-summary 公开 API 实拉（2026-08-18）</td></tr>
+      <tr><td>IBKR Gateway API</td><td class="warn">⚠️ 10 月月末快照仍缺</td><td>2026-11-02 已实拉新快照：净值 <b>$169,454</b>（现金 $121,919.77 + 持仓 $46,261.12，未实现 −$17,860.92），KAP 754 股 @ 成本 85.0425 与台账一致 → 11 月起账户级可连续；<b>但 10/30 月末快照缺口未补</b>（10 月整月未拉取）→ 账户级 10 月回报与账户级 MaxDD <b>不可算</b>，如实标注（需 PortfolioAnalyst PDF 才能补）</td></tr>
+      <tr><td>OKX 期权希腊字母</td><td class="pos">✅ 已验证</td><td>opt-summary 公开 API 实拉（2026-08-18；CC 已暂停，仅存档）</td></tr>
+      <tr><td>月末收盘价双源交叉</td><td class="pos">✅ 已验证</td><td>KAP：东财 K线 61.20 = 腾讯 ukKAP 61.20（USD 标签一致）；康臣：ifzq 日K 15.25 = qt.gtimg 15.250；BTC：Binance Vision 官方 zip 77,368.77</td></tr>
+      <tr><td>独立重算校验</td><td class="pos">✅ 全部通过</td><td>verify_independent.py 外部源重新拉价全盘重算（用户 2026-10-02 强制）：KAP 差 0.00% / 康臣 0.00% / 总值 0.00% / MoM -3.63% ✓ / USD 累计 -12.30% ✓ / 双口径互推闭合 0.00004pp</td></tr>
+      <tr><td>数据源独立性</td><td class="warn">⚠️ 部分受限</td><td>期末（决定总值）KAP 东财 61.20（腾讯 ukKAP 同值交叉）+ 康臣 ifzq 15.25（新浪 15.21，差 0.04 属竞价口径，影响 &lt;0.02%）均已独立拉取；<b>月初 9/30 KAP 东财限流</b> → 退化为 DB 归档同源值，仅验算术不验源，<b>MoM 分母独立性部分受限</b></td></tr>
+      <tr><td>IBKR 现金利息（应计制）</td><td class="pos">✅ 已重述</td><td>官方 USD 利率 3.13%（8/18–9/16）→ 3.38%（9/17 起），日计数 ACT/360，本金 $19,547 逐日计提；期末应计 <b>$130.04</b> 单列为「IBKR 应计利息」资产。<b>重述：8/31 NAV +$22.09、9/30 NAV +$74.98</b>（此前估值点只含现金余额、未含应计），18 Aug 首个估值日不受影响（当日未计提）</td></tr>
       <tr><td>OKX 余额快照 Hash</td><td class="muted">⏳ 待接入</td><td>每月快照存 SHA-256</td></tr>
-      <tr><td>GitHub Commit ID</td><td class="muted">⏳ 待 GitHub 部署</td><td>commit 历史 = 不可篡改时间戳</td></tr>
-      <tr><td>本页 SHA-256</td><td><span id="hash2">a8942c723832586bb13bb66ef918ebc2eacbdb901952172d3116fa28faf18714</span></td><td>每次生成唯一指纹</td></tr>
+      <tr><td>GitHub Commit ID</td><td class="muted">⏳ 待用户手动上传</td><td>暂存目录 output/github_upload_2026-11/；GitHub MCP 只读（403）</td></tr>
+      <tr><td>本页 SHA-256</td><td><span id="hash2">f3122b5f1943260475d4df4d84698de9f622d27db3a5f5af2ccc81bec2ca6eec</span></td><td>每次生成唯一指纹</td></tr>
     </table>
   </div>
 
@@ -310,55 +337,92 @@ details summary { font-size:13px; }
     
     <table>
       <tr><th>指标</th><th>上月归档值</th><th>本月值</th><th>差异</th><th>判定</th><th>差异解释</th></tr>
-      <tr><td>invest_mv_usd</td><td>128100.0</td><td>120245.73</td><td>6.13%</td><td class='warn'>📎 已解释</td><td class='muted' style='font-size:12px'>BTC清仓资产置换（47,209→USDT活期45,986.41，卖出价低于9/30收盘）+ KAP/康臣行情移动；月中更新口径（10/15），正式月末对比以11/1月报为准</td></tr><tr><td>unreal_pct</td><td>-9.05</td><td>-14.63</td><td>61.61%</td><td class='warn'>📎 已解释</td><td class='muted' style='font-size:12px'>成本冻结140,845不变，分子随真实事件（BTC清仓+行情移动）变动</td></tr><tr><td>kap_mv_usd</td><td>48105.0</td><td>44863.0</td><td>6.74%</td><td class='warn'>📎 已解释</td><td class='muted' style='font-size:12px'>10/15实时价62.80（东财10/14 LSE收盘，伦敦10/15未开盘）vs 9/30月末63.80，真实行情移动 + 月中更新口径</td></tr><tr><td>kap_share_pct</td><td>37.6</td><td>37.31</td><td>0.77%</td><td class='warn'>📎 已解释</td><td class='muted' style='font-size:12px'>分子随行情移动，分母含USDT存款新增项，月中更新口径</td></tr><tr><td>btc_mv_usd</td><td>47209.0</td><td>0.0</td><td>100.00%</td><td class='warn'>📎 已解释</td><td class='muted' style='font-size:12px'>2026-10-15 08:38 DM讯号flat，严格按量化模型卖出全部BTC 0.56454172 @ 81,457.94 USDT（手续费0，OKX交易账单）→ 100%差异=真实清仓事件，非数据错误；【10/16 更新】DM 信号反转 long，当日买回 0.55835744 BTC @ 82,366.11（手续费 0），BTC 持仓回归（数量较清仓前少 0.00618 = 价差损耗）；【10/17 更新】DM 信号再转 flat，卖出全部 BTC 0.55835744 @ 81,256.05（手续费 0，到账 45,369.92 USDT 转入 OKX 活期）——BTC 归零为真实交易事件</td></tr><tr><td>btc_share_pct</td><td>36.9</td><td>0.0</td><td>100.00%</td><td class='warn'>📎 已解释</td><td class='muted' style='font-size:12px'>同上：BTC清仓后占比归零，资产置换为USDT活期存款；【10/16 更新】BTC 买回后占比回归约 36.4%；【10/17 更新】BTC 再清仓后占比归零，资产置换为 USDT 活期 45,369.92（占比约 35.9%）</td></tr><tr><td>kang_mv_usd</td><td>13239.0</td><td>7844.36</td><td>40.75%</td><td class='warn'>📎 已解释</td><td class='muted' style='font-size:12px'>10/15实时15.01（腾讯行情）vs 9/30月末14.84，真实行情移动</td></tr><tr><td>kang_share_pct</td><td>10.3</td><td>6.52</td><td>36.66%</td><td class='warn'>📎 已解释</td><td class='muted' style='font-size:12px'>分子随行情移动，分母含USDT存款新增项</td></tr><tr><td>invest_cash_usd</td><td>19547.0</td><td>19547.0</td><td>0.00%</td><td class='pos'>✅</td><td class='muted' style='font-size:12px'>—</td></tr><tr><td>watchline_KAP.L</td><td>触发</td><td>触发</td><td>一致</td><td class='pos'>✅</td><td class='muted' style='font-size:12px'>—</td></tr><tr><td>watchline_01681.HK</td><td>正常</td><td>正常</td><td>一致</td><td class='pos'>✅</td><td class='muted' style='font-size:12px'>—</td></tr>
+      <tr><td>invest_mv_usd</td><td>128100.0</td><td>123523.03</td><td>3.57%</td><td class='warn'>📎 已解释</td><td class='muted' style='font-size:12px'>BTC清仓资产置换（47,209→USDT活期45,986.41，卖出价低于9/30收盘）+ KAP/康臣行情移动；月中更新口径（10/15），正式月末对比以11/1月报为准</td></tr><tr><td>unreal_pct</td><td>-9.05</td><td>-12.3</td><td>35.90%</td><td class='warn'>📎 已解释</td><td class='muted' style='font-size:12px'>成本冻结140,845不变，分子随真实事件（BTC清仓+行情移动）变动</td></tr><tr><td>kap_mv_usd</td><td>48105.0</td><td>46144.8</td><td>4.07%</td><td class='warn'>📎 已解释</td><td class='muted' style='font-size:12px'>10/15实时价62.80（东财10/14 LSE收盘，伦敦10/15未开盘）vs 9/30月末63.80，真实行情移动 + 月中更新口径</td></tr><tr><td>kap_share_pct</td><td>37.6</td><td>37.36</td><td>0.65%</td><td class='warn'>📎 已解释</td><td class='muted' style='font-size:12px'>分子随行情移动，分母含USDT存款新增项，月中更新口径</td></tr><tr><td>btc_mv_usd</td><td>47209.0</td><td>0.0</td><td>100.00%</td><td class='warn'>📎 已解释</td><td class='muted' style='font-size:12px'>2026-10-15 08:38 DM讯号flat，严格按量化模型卖出全部BTC 0.56454172 @ 81,457.94 USDT（手续费0，OKX交易账单）→ 100%差异=真实清仓事件，非数据错误；【10/16 更新】DM 信号反转 long，当日买回 0.55835744 BTC @ 82,366.11（手续费 0），BTC 持仓回归（数量较清仓前少 0.00618 = 价差损耗）；【10/17 更新】DM 信号再转 flat，卖出全部 BTC 0.55835744 @ 81,256.05（手续费 0，到账 45,369.92 USDT 转入 OKX 活期）——BTC 归零为真实交易事件</td></tr><tr><td>btc_share_pct</td><td>36.9</td><td>0.0</td><td>100.00%</td><td class='warn'>📎 已解释</td><td class='muted' style='font-size:12px'>同上：BTC清仓后占比归零，资产置换为USDT活期存款；【10/16 更新】BTC 买回后占比回归约 36.4%；【10/17 更新】BTC 再清仓后占比归零，资产置换为 USDT 活期 45,369.92（占比约 35.9%）</td></tr><tr><td>kang_mv_usd</td><td>13239.0</td><td>9719.1</td><td>26.59%</td><td class='warn'>📎 已解释</td><td class='muted' style='font-size:12px'>10/15实时15.01（腾讯行情）vs 9/30月末14.84，真实行情移动</td></tr><tr><td>kang_share_pct</td><td>10.3</td><td>7.87</td><td>23.61%</td><td class='warn'>📎 已解释</td><td class='muted' style='font-size:12px'>分子随行情移动，分母含USDT存款新增项</td></tr><tr><td>invest_cash_usd</td><td>19547.0</td><td>19547.0</td><td>0.00%</td><td class='pos'>✅</td><td class='muted' style='font-size:12px'>—</td></tr><tr><td>watchline_KAP.L</td><td>触发</td><td>触发</td><td>一致</td><td class='pos'>✅</td><td class='muted' style='font-size:12px'>—</td></tr><tr><td>watchline_01681.HK</td><td>正常</td><td>正常</td><td>一致</td><td class='pos'>✅</td><td class='muted' style='font-size:12px'>—</td></tr>
     </table>
   </div>
 
   <div class="footer">
     本页为只读展示层，数据来自真实交易记录（IBKR Gateway API / OKX 历史委托单 / tdx 行情）。<br>
     月度快照每月 1 日自动更新并归档哈希，历史版本不可删除。<br>
-    <b>SHA-256 指纹（本页）：</b><span id="hash">a8942c723832586bb13bb66ef918ebc2eacbdb901952172d3116fa28faf18714</span>
+    <b>SHA-256 指纹（本页）：</b><span id="hash">f3122b5f1943260475d4df4d84698de9f622d27db3a5f5af2ccc81bec2ca6eec</span>
   </div>
 </div>
 
 <script>
-const allocData = [{"label": "权益 Stock", "value": 52707.0}, {"label": "稳定币 Stable(OKX活期2.75%)", "value": 43886.0}, {"label": "加密 Crypto", "value": 0.0}, {"label": "现金 Cash", "value": 23653.0}];
+const allocData = [{"label": "权益 Stock", "value": 55864.0}, {"label": "稳定币 Stable(OKX活期2.75%)", "value": 43886.0}, {"label": "加密 Crypto", "value": 0.0}, {"label": "现金 Cash", "value": 23774.0}];
 const incomeChartData = {"股息": 2411.0, "利息": 102.0, "期权净P&L": -1581};
-const priceChartData = {"A_SPX": [{"x": "2026-08-17", "y": 7745.06}], "KAP": [{"x": "2026-08-18", "y": 73.11}, {"x": "2026-08-23", "y": 70.23}, {"x": "2026-08-31", "y": 74.5}, {"x": "2026-09-01", "y": 74.8}, {"x": "2026-09-30", "y": 63.8}, {"x": "2026-10-12", "y": 63.9}, {"x": "2026-10-13", "y": 62.1}, {"x": "2026-10-14", "y": 62.8}, {"x": "2026-10-16", "y": 64.4}, {"x": "2026-10-19", "y": 61.6}, {"x": "2026-10-20", "y": 61.2}, {"x": "2026-10-21", "y": 62.7}, {"x": "2026-10-22", "y": 60.0}, {"x": "2026-10-23", "y": 59.5}], "康臣": [{"x": "2026-08-18", "y": 13.33}, {"x": "2026-08-21", "y": 13.6}, {"x": "2026-08-31", "y": 13.53}, {"x": "2026-09-01", "y": 13.52}, {"x": "2026-09-30", "y": 14.84}, {"x": "2026-10-08", "y": 14.85}, {"x": "2026-10-12", "y": 14.85}, {"x": "2026-10-15", "y": 15.39}, {"x": "2026-10-16", "y": 15.68}, {"x": "2026-10-20", "y": 16.04}, {"x": "2026-10-21", "y": 15.72}, {"x": "2026-10-22", "y": 15.21}, {"x": "2026-10-23", "y": 15.38}], "BTC": [{"x": "2026-08-18", "y": 64221.4}, {"x": "2026-08-23", "y": 77293.7}, {"x": "2026-08-31", "y": 78581.29}, {"x": "2026-09-01", "y": 77937.49}, {"x": "2026-09-30", "y": 83623.6}, {"x": "2026-10-07", "y": 83385.0}, {"x": "2026-10-08", "y": 83488.0}, {"x": "2026-10-12", "y": 83720.0}, {"x": "2026-10-15", "y": 81457.94}, {"x": "2026-10-16", "y": 82366.11}, {"x": "2026-10-17", "y": 81256.05}, {"x": "2026-10-21", "y": 83363.19}, {"x": "2026-10-24", "y": 80614.63}], "HSI": [{"x": "2026-08-18", "y": 25471.15}]};
-const navChartData = {"投资盘估值(USD)": [{"x": "2026-08-18", "y": 117726.0}, {"x": "2026-08-31", "y": 126983.0}, {"x": "2026-09-01", "y": 126841.0}, {"x": "2026-09-30", "y": 122430.0}, {"x": "2026-10-12", "y": 122565.0}, {"x": "2026-10-16", "y": 119988.0}, {"x": "2026-10-20", "y": 117758.0}, {"x": "2026-10-21", "y": 118726.0}, {"x": "2026-10-22", "y": 116430.0}, {"x": "2026-10-23", "y": 116140.0}], "IBKR账户净值(USD)": [{"x": "2026-08-18", "y": 177585.18}, {"x": "2026-09-02", "y": 178502.13}, {"x": "2026-10-01", "y": 171018.24}]};
-const textColor = '#8b949e';
-Chart.defaults.color = textColor;
+const navSeries = {"portfolio": [{"x": "2026-08-18", "y": 122821.0}, {"x": "2026-08-21", "y": 123067.0}, {"x": "2026-08-23", "y": 128279.0}, {"x": "2026-08-31", "y": 132176.0}, {"x": "2026-09-01", "y": 132032.0}, {"x": "2026-09-30", "y": 128177.0}, {"x": "2026-10-07", "y": 128055.0}, {"x": "2026-10-08", "y": 128124.0}, {"x": "2026-10-12", "y": 128338.0}, {"x": "2026-10-13", "y": 126982.0}, {"x": "2026-10-14", "y": 127512.0}, {"x": "2026-10-15", "y": 126719.0}, {"x": "2026-10-16", "y": 128186.0}, {"x": "2026-10-17", "y": 127568.0}, {"x": "2026-10-19", "y": 125460.0}, {"x": "2026-10-20", "y": 125482.0}, {"x": "2026-10-21", "y": 126418.0}, {"x": "2026-10-22", "y": 124059.0}, {"x": "2026-10-23", "y": 123792.0}, {"x": "2026-10-24", "y": 122298.0}, {"x": "2026-10-26", "y": 123346.0}, {"x": "2026-10-27", "y": 125026.0}, {"x": "2026-10-28", "y": 126940.0}, {"x": "2026-10-29", "y": 125622.0}, {"x": "2026-10-30", "y": 123523.0}], "ibkr": [{"x": "2026-08-18", "y": 177585.18}, {"x": "2026-09-02", "y": 178502.13}, {"x": "2026-10-01", "y": 171018.24}, {"x": "2026-11-02", "y": 169453.84}]};
+const pxKAP = [{"x": "2026-08-18", "y": 73.11}, {"x": "2026-08-23", "y": 70.23}, {"x": "2026-08-31", "y": 74.5}, {"x": "2026-09-01", "y": 74.8}, {"x": "2026-09-30", "y": 63.8}, {"x": "2026-10-12", "y": 63.9}, {"x": "2026-10-13", "y": 62.1}, {"x": "2026-10-14", "y": 62.8}, {"x": "2026-10-16", "y": 64.4}, {"x": "2026-10-19", "y": 61.6}, {"x": "2026-10-20", "y": 61.2}, {"x": "2026-10-21", "y": 62.7}, {"x": "2026-10-22", "y": 60.0}, {"x": "2026-10-23", "y": 59.5}, {"x": "2026-10-26", "y": 60.7}, {"x": "2026-10-27", "y": 62.9}, {"x": "2026-10-28", "y": 65.8}, {"x": "2026-10-29", "y": 64.1}, {"x": "2026-10-30", "y": 61.2}];
+const pxKANG = [{"x": "2026-08-18", "y": 13.33}, {"x": "2026-08-21", "y": 13.6}, {"x": "2026-08-31", "y": 13.53}, {"x": "2026-09-01", "y": 13.52}, {"x": "2026-09-30", "y": 14.84}, {"x": "2026-10-08", "y": 14.85}, {"x": "2026-10-12", "y": 14.85}, {"x": "2026-10-15", "y": 15.39}, {"x": "2026-10-16", "y": 15.68}, {"x": "2026-10-20", "y": 16.04}, {"x": "2026-10-21", "y": 15.72}, {"x": "2026-10-22", "y": 15.21}, {"x": "2026-10-23", "y": 15.38}, {"x": "2026-10-26", "y": 15.6}, {"x": "2026-10-27", "y": 15.63}, {"x": "2026-10-28", "y": 15.2}, {"x": "2026-10-29", "y": 15.14}, {"x": "2026-10-30", "y": 15.25}];
+const pxBTC = [{"x": "2026-08-18", "y": 64221.4}, {"x": "2026-08-23", "y": 77293.7}, {"x": "2026-08-31", "y": 78581.29}, {"x": "2026-09-01", "y": 77937.49}, {"x": "2026-09-30", "y": 83623.6}, {"x": "2026-10-07", "y": 83385.0}, {"x": "2026-10-08", "y": 83488.0}, {"x": "2026-10-12", "y": 83720.0}, {"x": "2026-10-15", "y": 81457.94}, {"x": "2026-10-16", "y": 82366.11}, {"x": "2026-10-17", "y": 81256.05}, {"x": "2026-10-21", "y": 83363.19}, {"x": "2026-10-24", "y": 80614.63}, {"x": "2026-10-30", "y": 77368.77}];
+Chart.defaults.color = '#8b949e';
 Chart.defaults.borderColor = 'rgba(139,148,158,0.15)';
+Chart.defaults.font.size = 11;
+
+// ===== 对齐工装：并集日期轴 + 空缺补 null + spanGaps，杜绝 category 轴错位 ====
+function _axisOf(series) {
+  const s = new Set();
+  series.forEach(x => x.pts.forEach(p => s.add(p.x)));
+  return Array.from(s).sort();
+}
+function _aligned(pts, axis) {
+  const m = new Map(pts.map(p => [p.x, p.y]));
+  return axis.map(x => (m.has(x) ? m.get(x) : null));
+}
+function _mkLine(id, series, opt) {
+  opt = opt || {};
+  const axis = _axisOf(series);
+  const labels = axis.map(d => d.slice(5).replace('-', '/'));
+  new Chart(document.getElementById(id), {
+    type: 'line',
+    data: { labels: labels, datasets: series.map(s => ({
+      label: s.name, data: _aligned(s.pts, axis),
+      borderColor: s.color, backgroundColor: 'transparent',
+      borderWidth: s.width || 2, borderDash: s.dash || [],
+      pointRadius: s.r === undefined ? 2.5 : s.r, pointHoverRadius: 5,
+      tension: 0.12, spanGaps: true, fill: false
+    })) },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      layout: { padding: { top: 4 } },
+      scales: {
+        x: { ticks: { maxTicksLimit: opt.maxTicks || 7, maxRotation: 0, autoSkip: true } },
+        y: { beginAtZero: false, grace: '8%',
+              ticks: { callback: v => (opt.fmt ? opt.fmt(v) : v) } }
+      },
+      plugins: {
+        legend: { position: 'bottom', labels: { boxWidth: 12, padding: 12, usePointStyle: true } },
+        tooltip: { callbacks: { label: c => c.dataset.label + '：' + (opt.fmt ? opt.fmt(c.parsed.y) : c.parsed.y) } }
+      }
+    }
+  });
+}
+const _usd0 = v => '$' + Math.round(v).toLocaleString();
+const _usd2 = v => '$' + Number(v).toFixed(2);
+const _hkd2 = v => 'HK$' + Number(v).toFixed(2);
+const _usdt0 = v => '$' + Math.round(v).toLocaleString() + ' USDT';
+
 new Chart(document.getElementById('allocChart'), {
   type: 'doughnut',
-  data: { labels: allocData.map(d=>d.label), datasets: [{ data: allocData.map(d=>d.value), backgroundColor: ['#58a6ff','#d29922','#a371f7','#3fb950'], borderWidth: 0 }] },
-  options: { plugins: { legend: { position: 'bottom' } }, cutout: '62%' }
+  data: { labels: allocData.map(d => d.label), datasets: [{ data: allocData.map(d => d.value), backgroundColor: ['#58a6ff','#d29922','#a371f7','#3fb950'], borderWidth: 0 }] },
+  options: { plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 10 } } }, cutout: '62%' }
 });
 new Chart(document.getElementById('incomeChart'), {
   type: 'doughnut',
   data: { labels: Object.keys(incomeChartData), datasets: [{ data: Object.values(incomeChartData), backgroundColor: ['#3fb950','#58a6ff','#d29922'], borderWidth: 0 }] },
-  options: { plugins: { legend: { position: 'bottom' } }, cutout: '62%' }
+  options: { plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 10 } } }, cutout: '62%' }
 });
-const ds = Object.entries(priceChartData).map(([k, pts], i) => ({
-  label: k, data: pts,
-  borderColor: ['#58a6ff','#3fb950','#f85149'][i % 3],
-  backgroundColor: 'transparent', borderWidth: 2, pointRadius: 3, tension: 0.2
-}));
-new Chart(document.getElementById('priceChart'), {
-  type: 'line',
-  data: { datasets: ds },
-  options: { scales: { x: { type: 'category', ticks: { maxTicksLimit: 8 } }, y: { beginAtZero: false } }, plugins: { legend: { position: 'bottom' } } }
-});
-const dsNav = Object.entries(navChartData).map(([k, pts], i) => ({
-  label: k, data: pts,
-  borderColor: ['#f85149','#58a6ff'][i % 2],
-  backgroundColor: 'transparent', borderWidth: 2.5, pointRadius: 4, tension: 0.15
-}));
-new Chart(document.getElementById('navChart'), {
-  type: 'line',
-  data: { datasets: dsNav },
-  options: { scales: { x: { type: 'category', ticks: { maxTicksLimit: 8 } }, y: { beginAtZero: false } }, plugins: { legend: { position: 'bottom' } } }
-});
+
+// 净值双线：投资盘逐日（实线）vs IBKR 账户快照（虚线，点稀）
+_mkLine('navChart', [
+  { name: '投资盘估值（逐日·流水重建）', pts: navSeries.portfolio, color: '#f85149', width: 2.5, r: 2 },
+  { name: 'IBKR 账户净值（官方快照）', pts: navSeries.ibkr, color: '#58a6ff', width: 2, r: 5, dash: [6,4] }
+], { fmt: _usd0, maxTicks: 8 });
+
+_mkLine('chartKAP', [{ name: 'KAP（USD·LSE IOB）', pts: pxKAP, color: '#58a6ff' }], { fmt: _usd2 });
+_mkLine('chartKANG', [{ name: '康臣 01681（HKD）', pts: pxKANG, color: '#3fb950' }], { fmt: _hkd2 });
+_mkLine('chartBTC', [{ name: 'BTC（USDT）', pts: pxBTC, color: '#d29922' }], { fmt: _usdt0 });
 </script>
 </body>
 </html>

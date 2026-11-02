@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chris Cheung — Monthly Report, October 2026 (USD Class)</title>
+<style>
+  :root {
+    --ink:#0f172a; --body:#334155; --muted:#64748b; --line:#e2e8f0; --line2:#cbd5e1;
+    --paper:#ffffff; --tint:#f8fafc; --navy:#1e3a8a; --navy2:#1e40af;
+    --pos:#047857; --neg:#b91c1c; --warn:#b45309;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#eef2f6; color:var(--body);
+    font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; }
+  .sheet { max-width:1040px; margin:0 auto; background:var(--paper); padding:44px 52px 36px;
+    box-shadow:0 1px 3px rgba(15,23,42,.08); }
+  .masthead { display:flex; justify-content:space-between; align-items:flex-end;
+    border-bottom:2px solid var(--navy); padding-bottom:12px; }
+  .brand { font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--navy); font-weight:700; }
+  .brand span { display:block; font-size:11px; letter-spacing:.06em; color:var(--muted);
+    text-transform:none; font-weight:500; margin-top:3px; }
+  .cls { text-align:right; font-size:11px; color:var(--muted); line-height:1.7; }
+  .cls b { color:var(--ink); font-size:12px; }
+  h1 { font-size:27px; line-height:1.25; color:var(--ink); margin:22px 0 6px; font-weight:650;
+    letter-spacing:-.01em; }
+  .asof { font-size:12.5px; color:var(--muted); margin-bottom:20px; }
+  .asof a { color:var(--navy2); text-decoration:none; }
+  .kpis { display:grid; grid-template-columns:repeat(5,1fr); gap:0; border:1px solid var(--line);
+    border-bottom:2px solid var(--navy); margin-bottom:26px; }
+  .kpi { padding:13px 14px; border-right:1px solid var(--line); }
+  .kpi:last-child { border-right:0; }
+  .k { font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); }
+  .v { font-size:19px; font-weight:650; color:var(--ink); margin-top:5px;
+    font-variant-numeric:tabular-nums; }
+  .v.pos { color:var(--pos); } .v.neg { color:var(--neg); }
+  .m { font-size:10.5px; color:var(--muted); margin-top:3px; }
+  h2 { font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--navy);
+    margin:30px 0 10px; padding-bottom:6px; border-bottom:1px solid var(--line); font-weight:700; }
+  h2 em { float:right; font-style:normal; letter-spacing:0; text-transform:none;
+    color:var(--muted); font-weight:500; font-size:11.5px; }
+  p { margin:0 0 11px; }
+  .lead { font-size:15.5px; color:var(--ink); }
+  .cmt { border-left:2px solid var(--line2); padding:2px 0 2px 14px; margin:0 0 15px; }
+  .cmt-h { font-size:12.5px; font-weight:700; color:var(--ink); margin-bottom:3px; }
+  .cmt p { margin:0; font-size:13.8px; }
+  table { width:100%; border-collapse:collapse; font-size:13px;
+    font-variant-numeric:tabular-nums; margin-bottom:8px; }
+  th { text-align:left; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--muted); font-weight:600; padding:0 8px 7px; border-bottom:1px solid var(--line2); }
+  td { padding:8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tr.hl td { background:var(--tint); }
+  .n { text-align:right; white-space:nowrap; }
+  .pos { color:var(--pos); } .neg { color:var(--neg); } .muted { color:var(--muted); }
+  .tick { font-size:10.5px; color:var(--muted); }
+  .tag { font-size:10.5px; padding:2px 7px; border-radius:3px; font-weight:600; white-space:nowrap; }
+  .tag.warn { background:#fef3c7; color:var(--warn); }
+  .tag.ok { background:#d1fae5; color:var(--pos); }
+  .notes { font-size:11.8px; color:var(--muted); }
+  .notes li { margin-bottom:5px; }
+  .flag { background:#fef2f2; border:1px solid #fecaca; border-left:3px solid var(--neg);
+    padding:11px 14px; font-size:12.5px; margin:12px 0; }
+  .flag b { color:var(--neg); }
+  .flag.ok { background:#f0fdf4; border-color:#bbf7d0; border-left-color:var(--pos); }
+  .flag.ok b { color:var(--pos); }
+  .disc { font-size:11px; color:var(--muted); line-height:1.65; border-top:1px solid var(--line);
+    margin-top:26px; padding-top:12px; }
+  .hash { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:10px;
+    word-break:break-all; color:var(--muted); }
+  @media print { body { background:#fff; } .sheet { box-shadow:none; padding:0; max-width:none; }
+    h2 { page-break-after:avoid; } table { page-break-inside:avoid; } }
+  @media (max-width:760px) { .sheet { padding:26px 18px; } .kpis { grid-template-columns:repeat(2,1fr); }
+    .kpi { border-bottom:1px solid var(--line); } }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="brand">Chris Cheung<span>Private portfolio · investment track record</span></div>
+    <div class="cls"><b>USD Share Class</b><br>Base currency: USD<br>
+      <a href="index.html" style="color:var(--navy2);text-decoration:none">Chinese edition — RMB Class A →</a></div>
+  </div>
+
+  <h1>Monthly Report — October 2026</h1>
+  <div class="asof">
+    Reporting period 1–30 October 2026 · data cut-off 30 Oct 2026 close ·
+    benchmarks: Hang Seng Index, S&amp;P 500 · report ID <span class="hash" id="hash">6056e3e8a330dce926003ed3d43031f4c358aed9f5593bebda509d3b504274a7</span>
+  </div>
+
+  <div class="kpis"><div class="kpi"><div class="k">Net assets</div><div class="v ">123,523</div><div class="m">USD · as at 30 Oct 2026</div></div><div class="kpi"><div class="k">Month</div><div class="v neg">−3.63%</div><div class="m">30 Sep 2026 to 30 Oct 2026</div></div><div class="kpi"><div class="k">Since inception</div><div class="v pos">+0.57%</div><div class="m">from 122,821 on 18 Aug 2026</div></div><div class="kpi"><div class="k">Cash & equivalents</div><div class="v ">54.8%</div><div class="m">USD 67,659</div></div><div class="kpi"><div class="k">Max drawdown</div><div class="v neg">−6.55%</div><div class="m">month-end valuations · 4 points</div></div></div>
+
+  <h2>01 · Executive summary <em>USD terms</em></h2>
+  <p class="lead">
+    Net assets closed the month at <b>USD 123,523</b>, a change of <b class="neg">−3.63%</b>
+    from USD 128,177 at 30 Sep 2026. The portfolio remains 55% liquid
+    (USD 67,659) following the exit of the digital-asset position on 24 October.
+    Since inception, measured from the first valuation on <b>18 Aug 2026</b> (net assets
+    USD 122,821), the portfolio is <b class="pos">+0.57%</b>.
+  </p>
+  <p>
+    The month was driven by three separate developments, only one of which was a portfolio action: a valuation-led
+    de-rating in KAP, a continued re-rating in Consun, and a rule-based exit from bitcoin ahead of the market disruption
+    around the Binance incident. Commentary on each follows.
+  </p>
+  <div class="cmt"><div class="cmt-h">KAP plc — beta, not a broken thesis</div><p>KAP's decline this month was beta, not a thesis break. Nuclear was the best-performing theme in the period, which makes the underperformance a valuation (duration) event rather than an earnings event. The bear case that spot strength is failing to pass through into contract prices is not yet reflected in the valuation — and it does not survive contact with history: contract realisations have lagged spot by roughly two to four quarters rather than decoupling from it. The second leg of the bear case — that Russia will most likely keep supplying sulfuric acid, easing pressure on Kazakh in-situ leaching — we treat as plausible; its effect is to soften near-term conversion tightness, not to invalidate the multi-year contracting cycle. Position unchanged at 754 shares. The watchline was re-triggered at month-end (the shares had rebounded to USD 65.80 on 28 October before falling back) and was reviewed on 1 November: rating Watch, position held with no addition, and any addition now requires both price confirmation and the 2027 acid contract.</p></div><div class="cmt"><div class="cmt-h">Consun Pharmaceutical — fundamentals improving</div><p>Valuation is still repairing: the shares rose from HK$14.84 to HK$15.25 over the month (+2.8%). We trimmed 2,000 shares at HK$16.10 on 21 October, a 2.4% premium to that day's close, on a tactical overbought signal (CLV +0.378, close in the upper part of the range, unfavourable next-day odds) rather than any change in the investment case; net proceeds were HK$32,138.64 after HK$61.36 of fees, and the 5,000-share core position is retained at an all-in cost of HK$19.37. The finerenone threat has been brought forward from 2H2027 to immediate, transmitted through earlier price pressure on Uremic Clearance. CDE review progress and monthly Uremic Clearance sales are now standing agenda items.</p></div><div class="cmt"><div class="cmt-h">Digital assets — the rule exited before the event</div><p>The systematic overlay exited the entire digital-asset position on 24 October at US$80,614.63, ahead of the market disruption around the Binance incident; BTC closed the month at US$77,368.77, 4.0% below the exit price. We would not present a single favourable outcome as evidence of skill: the same rule generated five legs — two and a half round trips — and US$2,116.09 of round-trip friction within the month, two of which were whipsaws. The sleeve is now held in USDC yielding 2.75%.</p></div>
+  <div class="notes">Manager's commentary reflects the manager's judgement at the reporting date and is not a statement of verified fact. Holdings and prices are as reported in the tables above; transaction detail is in Section 04.</div>
+
+  <h2>02 · Performance &amp; attribution <em>month to 30 Oct 2026</em></h2>
+  <table>
+    <tr><th>Benchmark comparison</th><th class="n">Month</th><th class="n">Since inception</th><th>Note</th></tr>
+    <tr class="hl"><td><b>Portfolio (USD)</b></td>
+        <td class="n neg"><b>−3.63%</b></td>
+        <td class="n pos">+0.57%</td>
+        <td>Base currency USD · from 18 Aug 2026</td></tr><tr><td>Hang Seng Index</td><td class="n neg">−5.36%</td><td class="n neg">−8.55%</td><td class="muted">index level 23,294 · source: tencent ifzq</td></tr><tr><td>S&P 500</td><td class="n neg">−0.93%</td><td class="n neg">−1.45%</td><td class="muted">index level 7,580 · source: tencent ifzq</td></tr>
+  </table>
+  <div class="notes">The only trading cost in the period was HK$61.36 (USD 7.82) of commissions, levies and stamp duty on the Consun
+    sale; portfolio returns are shown net of it. Bitcoin was traded on a zero-fee basis.
+    <b>All three rows in the since-inception column start on 18 Aug 2026</b>, the portfolio's first valuation
+    date, at which net assets were USD 122,821. Index returns are price returns and exclude dividends.
+    No dividends were received during the period. Portfolio returns are total returns and include interest income.
+    <b>Return vs original cost of holdings</b>, which is a different measure and is not compared with the indices: the
+    cost base of USD 140,845 is the original purchase cost of the holdings and already carried an unrealised loss of
+    −12.80% on the first valuation date. That loss predates the track record and is not part of
+    performance. Measured against cost, net assets are −12.30% as at 30 Oct 2026.</div>
+
+  <table style="margin-top:16px">
+    <tr><th>Returns by period</th><th class="n">Portfolio (USD)</th><th class="n">Hang Seng Index</th>
+      <th class="n">S&amp;P 500</th></tr>
+    <tr><td>Aug 2026 — partial, from 18 Aug<div class="tick">18 Aug 2026 → 31 Aug 2026</div></td><td class="n pos"><b>+7.62%</b></td><td class="n pos">+0.38%</td><td class="n neg">−0.07%</td></tr><tr><td>Sep 2026<div class="tick">31 Aug 2026 → 30 Sep 2026</div></td><td class="n neg"><b>−3.03%</b></td><td class="n neg">−3.73%</td><td class="n neg">−0.45%</td></tr><tr><td>Oct 2026<div class="tick">30 Sep 2026 → 30 Oct 2026</div></td><td class="n neg"><b>−3.63%</b></td><td class="n neg">−5.36%</td><td class="n neg">−0.93%</td></tr><tr class="hl"><td><b>Since inception</b><div class="tick">18 Aug 2026 → 30 Oct 2026</div></td><td class="n pos"><b>+0.57%</b></td><td class="n neg">−8.55%</td><td class="n neg">−1.45%</td></tr>
+  </table>
+  <div class="notes">
+    The first period is partial — the track record begins on the first valuation date, 18 Aug 2026 — so it is not a
+    full-month return and is <b>not annualised</b>. Portfolio figures are month-end valuations derived from the execution ledger
+    and month-end closing prices: derived, not broker statements.
+    The monthly figures chain-link exactly to the since-inception return above; the two are the same measure stated two ways.
+  </div>
+
+  <table style="margin-top:16px">
+    <tr><th>Maximum drawdown</th><th class="n">USD</th><th class="n">Date</th></tr>
+    <tr><td>Peak valuation</td><td class="n">132,176</td>
+        <td class="n">31 Aug 2026</td></tr>
+      <tr><td>Trough valuation</td><td class="n">123,523</td>
+        <td class="n">30 Oct 2026</td></tr>
+      <tr class="hl"><td><b>Maximum drawdown</b> <span class="muted">(peak to trough, not annualised)</span></td>
+        <td class="n neg"><b>−6.55%</b></td><td class="n">4 month-end observations</td></tr>
+      <tr><td class="muted">Memo — deeper trough on daily revaluation</td>
+        <td class="n muted">−7.47%</td>
+        <td class="n muted">24 Oct 2026</td></tr>
+  </table>
+  <div class="notes">
+    Drawdown is measured on month-end valuations only — 4 valuation points (inception on 18 Aug 2026 + 3 month-ends) — peak to trough, and is not annualised.
+    A daily revaluation produces a deeper trough, shown as a memo line above.
+    Sharpe, Sortino, Calmar and annualised volatility are <b>not reported</b>: with fewer than 36 monthly observations they would
+    not be statistically meaningful (GIPS 2020, Provision 4.A.1.j). No annualised return is presented for any period shorter
+    than one year (Provision 2.A.12).
+  </div>
+
+  <table style="margin-top:16px">
+    <tr><th>Price effect by holding</th><th class="n">30 Sep 2026</th><th class="n">30 Oct 2026</th><th class="n">Change</th></tr>
+    <tr><td>KAP plc</td><td class="n">63.80</td><td class="n">61.20</td>
+        <td class="n neg">−4.08%</td></tr>
+      <tr><td>Consun Pharmaceutical</td><td class="n">14.84</td><td class="n">15.25</td>
+        <td class="n pos">+2.76%</td></tr>
+      <tr><td>Bitcoin (USD)</td><td class="n">83,623.60</td><td class="n">77,368.77</td>
+        <td class="n neg">−7.48%</td></tr>
+  </table>
+  <div class="notes">Price effects are shown on closing prices in local currency and exclude position changes.
+    The 2,000-share Consun trim on 21 October was executed at HK$16.10, a 2.4% premium to that day's close.</div>
+
+  <table style="margin-top:16px">
+    <tr><th>Change in net assets (USD)</th><th class="n">Amount</th></tr>
+    <tr><td>Opening net assets (30 Sep 2026)</td><td class="n">128,177</td></tr>
+    <tr><td>KAP — price effect</td><td class="n neg">−1,960</td></tr>
+    <tr><td>Consun — price effect on retained 5,000 shares</td><td class="n pos">261</td></tr>
+    <tr><td>Consun — realised on 2,000 shares trimmed</td><td class="n pos">313</td></tr>
+    <tr><td>Digital assets — trading result on the sleeve</td><td class="n neg">−3,339</td></tr>
+    <tr><td>Interest income</td><td class="n pos">70.32</td></tr>
+    
+    <tr class="hl"><td><b>Closing net assets (30 Oct 2026)</b></td><td class="n"><b>123,523</b></td></tr>
+  </table>
+  <div class="notes">
+    The Consun trim is shown net of HK$61.36 of commissions, levies and stamp duty, as booked by the broker.
+    The share balance was reconciled to the Chief Securities statement on 1 November 2026: 7,000 bought less 2,000
+    sold leaves 5,000 shares, and the position is carried at that figure. Trading result on the digital-asset sleeve
+    is measured from execution prices and excludes interest income, which is shown separately.
+    <br><b>Interest income.</b> Interest income comprises stablecoin interest credited by OKX (USD 15.26)
+    and interest accrued on the portfolio's allocated USD cash at Interactive Brokers (USD 55.06).
+    <br><b>Accrual basis.</b> Interest on the portfolio's allocated USD cash at Interactive Brokers (USD 19,547) is
+    imputed at IBKR's published USD rate and accrued daily (3.13% p.a. from 18 Aug 2026
+    to 16 Sep 2026, and 3.38% p.a. from 17 Sep 2026; day count ACT/360, balance × rate ÷ 360 per
+    calendar day), as the brokerage account also holds cash outside this portfolio. Accrued interest is carried as a separate
+    receivable, so every valuation point in this report uses the same convention. Rate and day-count source:
+    interactivebrokers.com/en/accounts/fees/monthlyInterestRates.php and /en/pricing/pricing-calculations-int.php, accessed 2 November 2026. Stablecoin interest is as credited by OKX. The HKD 32,138.64 proceeds of the Consun
+    trim were held non-interest-bearing until transfer on 1 November.
+  </div>
+
+  <h2>03 · Portfolio &amp; risk <em>30 Oct 2026 close</em></h2>
+  <table>
+    <tr><th>Holding</th><th class="n">Quantity</th><th class="n">Price</th><th class="n">Market value (USD)</th>
+      <th class="n">Weight</th><th class="n">Unrealised vs cost</th></tr>
+    <tr>
+          <td><b>KAP plc (GDR)</b><div class="tick">KAP.L · LSE IOB</div></td>
+          <td class="n">754</td><td class="n">61.20 USD</td>
+          <td class="n">46,145</td><td class="n">37.4%</td>
+          <td class="n neg">−28.0%</td></tr>
+<tr>
+          <td><b>Consun Pharmaceutical</b><div class="tick">01681.HK · HKEX</div></td>
+          <td class="n">5,000</td><td class="n">15.25 HKD</td>
+          <td class="n">9,719</td><td class="n">7.9%</td>
+          <td class="n neg">−21.3%</td></tr>
+<tr>
+      <td><b>Digital assets sleeve</b><div class="tick">BTC-USDC · OKX</div></td>
+      <td class="n">flat</td><td class="n">—</td>
+      <td class="n">0</td><td class="n">0.0%</td>
+      <td class="n muted">exited 24 Oct</td></tr>
+<tr>
+      <td><b>Stablecoin deposit</b><div class="tick">USDC · OKX Earn (2.75%)</div></td>
+      <td class="n">—</td><td class="n">1.00 USD</td>
+      <td class="n">43,886</td><td class="n">35.5%</td>
+      <td class="n muted">—</td></tr>
+<tr>
+      <td><b>Cash — IBKR</b><div class="tick">USD · frozen operating cash</div></td>
+      <td class="n">—</td><td class="n">—</td>
+      <td class="n">19,547</td><td class="n">15.8%</td>
+      <td class="n muted">—</td></tr>
+<tr>
+      <td><b>Cash — IBKR (HKD)</b><div class="tick">net proceeds of Consun trim, moved to IBKR 1 Nov</div></td>
+      <td class="n">—</td><td class="n">HKD 32,138.64</td>
+      <td class="n">4,097</td><td class="n">3.3%</td>
+      <td class="n muted">—</td></tr>
+<tr>
+      <td><b>Accrued interest receivable</b><div class="tick">USD cash at IBKR · ACT/360, accrued daily</div></td>
+      <td class="n">—</td><td class="n">—</td>
+      <td class="n">130.04</td><td class="n">0.1%</td>
+      <td class="n muted">—</td></tr>
+    <tr class="hl"><td><b>Total net assets</b></td><td class="n"></td><td class="n"></td>
+      <td class="n"><b>123,523</b></td><td class="n"><b>100.0%</b></td>
+      <td class="n neg"><b>−12.30%</b></td></tr>
+    <tr><td><b>Return since inception</b><div class="tick">from first valuation, 18 Aug 2026</div></td>
+      <td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td>
+      <td class="n pos"><b>+0.57%</b></td></tr>
+  </table>
+  <div class="notes">
+    Concentration: largest position 37.4% of net assets; top three 88.7%.
+    Cash and cash equivalents comprise the USDC stablecoin deposit at OKX (yielding 2.75% p.a.), frozen operating cash
+    in USD at Interactive Brokers, and the HKD proceeds of the Consun trim, transferred from Chief Securities to
+    Interactive Brokers on 1 November 2026.
+  </div>
+
+  <table style="margin-top:16px">
+    <tr><th>Watchlist &amp; reviews</th><th class="n">Level</th><th class="n">Close</th><th>Status</th><th>Action</th></tr>
+    <tr><td>KAP plc (KAP.L)</td><td class="n">USD 65.00</td>
+        <td class="n">61.20</td>
+        <td><span class="tag warn">Triggered</span></td>
+        <td><b>Hold, no addition — reviewed</b> · rating Watch · 1 Nov 2026</td></tr>
+      <tr><td>Consun Pharmaceutical (01681.HK)</td><td class="n">HKD 12.00</td>
+        <td class="n">15.25</td>
+        <td><span class="tag ok">Clear</span></td>
+        <td>No action required</td></tr>
+  </table>
+  <div class="notes">Watchlines are review triggers, not stop-losses. A triggered line requires a documented decision
+    within 24 hours; the decision rests with the manager and is recorded in the audit trail.
+    <br><b>KAP review, 1 Nov 2026</b> (rating WATCH): The mechanism behind the divergence is now established: uranium equities are being priced as high-duration liquidity assets, not as uranium-price assets. The conclusion is a liquidity shock, not a broken thesis. Fundamentals moved the other way over the month: the EGM rejected the Russian offtake (de-Russification ahead of expectations), a national strategic uranium reserve was proposed, the term contract price set a record at USD 96.50/lb and spot rose 4%. Rating retained at Watch; 754 shares held unchanged. <span class="muted">Source: <a href="research/kap_october_review_2026-11-01-en.html" style="color:var(--navy2);text-decoration:none">research/kap_october_review_2026-11-01-en.html</a></span><br><b>Conditions to add to the position</b> (both A and B required, tightened in October): A — Weekly close above MA50 (USD 67.27) and holds for two consecutive weeks; or reclaim MA20 (USD 62.94) and hold on the retest; B — 2027 sulfuric-acid contract signed, and the 2027 production guidance not cut (or explicitly maintained in the Q3 update).<br><b>Veto</b> (Watch downgraded to Avoid): Downgrade from Watch to Avoid if the 2027 production guidance is cut and the FY2026 dividend is reduced in the same period.</div>
+
+  <h2>04 · Trading activity <em>1–30 October 2026</em></h2>
+  <table>
+    <tr><th>Date</th><th>Instrument</th><th>Side</th><th class="n">Quantity</th><th class="n">Price</th>
+      <th class="n">Ccy</th><th class="n">Value (local)</th><th class="n">Fees</th></tr>
+    <tr><td>2026-10-15</td><td>BTC-USDT</td><td>Sell</td>
+          <td class="n">0.56454172</td>
+          <td class="n">81,457.94</td><td class="n">USDT</td>
+          <td class="n">45,986</td>
+          <td class="n">0.00</td></tr><tr><td>2026-10-16</td><td>BTC-USDT</td><td>Buy</td>
+          <td class="n">0.55835744</td>
+          <td class="n">82,366.11</td><td class="n">USDT</td>
+          <td class="n">45,990</td>
+          <td class="n">0.00</td></tr><tr><td>2026-10-17</td><td>BTC-USDT</td><td>Sell</td>
+          <td class="n">0.55835744</td>
+          <td class="n">81,256.05</td><td class="n">USDT</td>
+          <td class="n">45,370</td>
+          <td class="n">0.00</td></tr><tr><td>2026-10-21</td><td>BTC-USDT</td><td>Buy</td>
+          <td class="n">0.54438726</td>
+          <td class="n">83,363.19</td><td class="n">USDT</td>
+          <td class="n">45,382</td>
+          <td class="n">0.00</td></tr><tr><td>2026-10-21</td><td>01681.HK</td><td>Sell</td>
+          <td class="n">2,000</td>
+          <td class="n">16.10</td><td class="n">HKD</td>
+          <td class="n">32,200</td>
+          <td class="n">61.36</td></tr><tr><td>2026-10-24</td><td>BTC-USDC</td><td>Sell</td>
+          <td class="n">0.54438727</td>
+          <td class="n">80,614.63</td><td class="n">USDC</td>
+          <td class="n">43,886</td>
+          <td class="n">0.00</td></tr>
+  </table>
+  <div class="notes">
+    5 bitcoin legs executed in the month (2.5 round trips), one equity sale.
+    Total commissions, levies and stamp duty were HKD 61.36 (USD 7.82);
+    bitcoin traded on a zero-fee basis, so all of it relates to the equity sale. Round-trip friction on the digital-asset sleeve — a buy followed by a sell at a
+    lower price, netted across the month — was USD 2,116.09, on two of the round trips.
+    This friction is a component of the digital-asset trading result in Section 02, not a charge on top of it.
+  </div>
+
+  <h2>05 · Governance, audit &amp; methodology</h2>
+  <p>
+    Every published report is fingerprinted and appended to a SHA-256 audit chain. The fingerprint is embedded in this
+    document (<span class="hash" id="hash2">6056e3e8a330dce926003ed3d43031f4c358aed9f5593bebda509d3b504274a7</span>) and recorded together with the Chinese edition in a single chain
+    entry, so that neither language can be revised independently of the other.
+  </p>
+  <table>
+    <tr><th>Control</th><th>Status</th></tr>
+    <tr><td>Audit chain entries</td><td>22, this report included</td></tr>
+    <tr><td>Seven-line asset reconciliation</td><td><span class="tag ok">Passed</span> — holdings + cash + accrued interest equal net assets</td></tr>
+    <tr><td>Cross-edition consistency (USD net assets)</td><td><span class="tag ok">Passed</span> — identical to the RMB edition</td></tr>
+    <tr><td>Prior-month reconciliation</td><td><span class="tag ok">Passed</span> — variances above 0.5% documented</td></tr>
+    <tr><td>Currency identification (KAP)</td><td><span class="tag ok">Passed</span> — USD; verified against broker P&amp;L</td></tr>
+    <tr><td>Independent recalculation</td><td><span class="tag ok">Passed</span> — external price sources, full recompute</td></tr>
+  </table>
+  <div class="flag ok"><b>Reconciled item — Consun share balance (Note 4).</b> Consun Pharmaceutical (01681.HK) share balance — resolved against the Chief Securities statement. The Chief Securities transaction record for 5 Feb – 1 Nov 2026 contains exactly two trades: BOUGHT 7,000 at HK$19.34 on 16 Feb (HK$135,623.63 settled 23 Feb) and SOLD 2,000 at HK$16.10 on 21 Oct (HK$32,138.64 settled 23 Oct). The balance is therefore 5,000 shares with no missing trade; the 4,000 figure previously carried in the position record was a miscount.</div>
+  <ol class="notes">
+    <li>Prices: KAP plc — East Money LSE IOB daily close (USD); Consun Pharmaceutical — Tencent daily close (HKD);
+      bitcoin — OKX execution prices (USDC); indices — Tencent ifzq daily closes for both HSI and S&amp;P 500
+      (all eight index levels re-pulled and matched on 2 November 2026).</li>
+    <li>FX: USD/CNY 6.6710, USD/HKD 7.8454 (open.er-api.com mid-rate as of 2026-11-01).
+      The USD edition does not translate the portfolio; CNY is used only in the Chinese edition.</li>
+    <li>Original cost of holdings: USD 140,845, frozen at 18 August 2026. Performance is measured from the first
+      valuation (NAV USD 122,821 on 18 Aug 2026), not from cost.</li>
+    <li>Share balance: 5,000 Consun shares, reconciled on 1 November 2026 to the Chief Securities transaction record for
+      5 February – 1 November 2026, which contains only the 16 February purchase of 7,000 and the 21 October sale of
+      2,000. An earlier 4,000 figure was a miscount in the position record and has been restated.</li>
+    <li>Return presentation: this track record is shorter than one year, so no return is annualised (GIPS 2020, Provision
+      2.A.12). Returns are total returns, i.e. net of transaction costs and inclusive of interest income (Provision 2.A.8).</li>
+    <li><b>Restatement — IBKR interest, accrual basis (2 November 2026).</b> IBKR interest is credited in arrears, so it does
+      not sit in the USD cash balance at a month-end. Earlier valuation points in this track record carried the cash
+      balance only. Net assets at 31 August 2026 and 30 September 2026 have therefore been restated upward by
+      USD 22.09 and USD 74.98 respectively, and the
+      first valuation on 18 August 2026 is unaffected because no interest had accrued on that date.
+      All 4 valuation points in this report are on the same accrual basis.</li>
+    <li>Risk statistics: Sharpe, Sortino, Calmar and annualised volatility require 36 monthly observations to be meaningful
+      (GIPS 2020, Provision 4.A.1.j). With 4 valuation points (inception on 18 Aug 2026 + 3 month-ends) available, these figures are withheld
+      rather than published on thin data. The first date on which 36 monthly observations will exist is 31 August 2029;
+      annualised returns may be reported from 31 August 2027.</li>
+  </ol>
+
+  <div class="disc">
+    <b>Important information.</b> This document is a personal investment track record prepared for information purposes only.
+    It is not an offer, solicitation or recommendation to buy or sell any security, and it is not investment advice. It is not
+    a fund, unit trust or collective investment scheme, and no subscription, redemption or fee arrangement is offered or implied.
+    Past performance is not indicative of future results. Figures are unaudited, are prepared by the manager from broker and
+    exchange records, and may be restated if records are corrected; restatements are disclosed in the audit chain.
+    The Chinese edition is the edition of record for RMB-based readers; both editions are generated from the same source data
+    and carry the same net asset figure in USD.
+    <div class="hash" style="margin-top:8px">Content fingerprint: <span id="hash3">6056e3e8a330dce926003ed3d43031f4c358aed9f5593bebda509d3b504274a7</span> ·
+      generated 2 Nov 2026 09:40 · © 2026 Chris Cheung</div>
+  </div>
+
+</div>
+</body>
+</html>

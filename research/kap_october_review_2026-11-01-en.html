@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kazatomprom (LSE: KAP) — October 2026 Review — Chris Cheung Equity Research</title>
+<style>
+  :root{
+    --ink:#0f172a; --body:#334155; --muted:#64748b; --line:#e2e8f0; --line2:#cbd5e1;
+    --paper:#ffffff; --tint:#f8fafc; --navy:#1e3a8a; --navy2:#1e40af;
+    --pos:#047857; --neg:#b91c1c; --warn:#b45309;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#eef2f6;color:var(--body);
+       font:15px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+       -webkit-font-smoothing:antialiased}
+  .sheet{max-width:1040px;margin:0 auto;background:var(--paper);padding:44px 52px 40px;
+         box-shadow:0 1px 3px rgba(15,23,42,.08)}
+  .masthead{display:flex;justify-content:space-between;align-items:flex-end;
+            border-bottom:2px solid var(--navy);padding-bottom:12px}
+  .brand{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);font-weight:700}
+  .brand span{display:block;font-size:11px;letter-spacing:.06em;color:var(--muted);
+              text-transform:none;font-weight:500;margin-top:3px}
+  .cls{text-align:right;font-size:11px;color:var(--muted);line-height:1.7}
+  .cls b{color:var(--ink);font-size:12px}
+  h1{font-size:27px;line-height:1.25;color:var(--ink);margin:22px 0 6px;font-weight:650;letter-spacing:-.01em}
+  .asof{font-size:12.5px;color:var(--muted);margin-bottom:20px}
+  h2{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);
+     margin:30px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line);font-weight:700}
+  h2 em{float:right;font-style:normal;letter-spacing:0;text-transform:none;
+        color:var(--muted);font-weight:500;font-size:11.5px}
+  h3{font-size:13.5px;color:var(--ink);margin:20px 0 6px;font-weight:700}
+  p{margin:0 0 11px}
+  .lead{font-size:15.5px;color:var(--ink)}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);
+        border-bottom:2px solid var(--navy);margin-bottom:24px}
+  .kpi{padding:13px 14px;border-right:1px solid var(--line)}
+  .kpi:last-child{border-right:0}
+  .k{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+  .v{font-size:19px;font-weight:650;color:var(--ink);margin-top:5px;font-variant-numeric:tabular-nums}
+  .v.pos{color:var(--pos)} .v.neg{color:var(--neg)} .v.warn{color:var(--warn)}
+  .m{font-size:10.5px;color:var(--muted);margin-top:3px}
+  table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums;margin-bottom:8px}
+  th{text-align:left;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+     color:var(--muted);font-weight:600;padding:0 8px 7px;border-bottom:1px solid var(--line2)}
+  td{padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr.hl td{background:var(--tint)}
+  .n{text-align:right}
+  .muted{color:var(--muted)}
+  .neg{color:var(--neg)} .pos{color:var(--pos)}
+  .tag{font-size:10.5px;padding:2px 7px;border-radius:3px;font-weight:600;white-space:nowrap}
+  .tag.warn{background:#fef3c7;color:#92400e}
+  .tag.ok{background:#d1fae5;color:#065f46}
+  .tag.neu{background:#e2e8f0;color:#334155}
+  .notes{font-size:12px;color:var(--muted);line-height:1.6;margin:6px 0 14px}
+  .notes b{color:var(--body)}
+  .call{border-left:3px solid var(--navy);background:var(--tint);padding:14px 16px;margin:14px 0 18px}
+  .call p{margin:0;font-size:14.5px;color:var(--ink)}
+  .box{border:1px solid var(--line);background:var(--tint);padding:14px 16px;margin:14px 0}
+  .box.warnbox{background:#fffbeb;border-color:#fcd34d}
+  .lbl{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;
+       padding:1px 6px;border-radius:3px;margin-right:5px;vertical-align:1px}
+  .lbl.f{background:#dbeafe;color:#1e40af}
+  .lbl.i{background:#fef3c7;color:#92400e}
+  .disc{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);
+        font-size:11px;color:var(--muted);line-height:1.65}
+  .disc b{color:var(--body)}
+  ol.notes-list{font-size:12px;color:var(--muted);padding-left:18px;margin:6px 0 14px}
+  ol.notes-list li{margin-bottom:5px}
+  .foot{margin-top:20px;font-size:11px;color:var(--muted);text-align:center}
+  @media print{body{background:#fff}.sheet{box-shadow:none;padding:0}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="brand">Chris Cheung — Equity Research
+      <span>Single-stock review · monthly · personal research record</span></div>
+    <div class="cls">
+      <b>Not a recommendation</b><br>
+      Prepared for the named reader only<br>
+      Data cut-off 30 October 2026 close
+    </div>
+  </div>
+
+  <h1>Kazatomprom (LSE: KAP GDR)<br>October 2026 Review — the plan died twice; the thesis did not</h1>
+  <div class="asof">Covering 1–30 October 2026 · previous review: September edition (2 Oct 2026) · template: 24 Aug 2026 report</div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="k">Rating</div><div class="v warn">WATCH</div><div class="m">unchanged · no addition</div></div>
+    <div class="kpi"><div class="k">Close, 30 Oct</div><div class="v">USD 61.20</div><div class="m">−4.08% in the month</div></div>
+    <div class="kpi"><div class="k">NEV, 12M</div><div class="v">USD 70.13</div><div class="m">−2.5% vs September · 12.7% upside</div></div>
+    <div class="kpi"><div class="k">Risk score</div><div class="v warn">7.0 / 10</div><div class="m">↑0.5 vs September</div></div>
+  </div>
+
+  <div class="call">
+    <p><b>The most important thing in October was not the decline — it was that the trading plan failed twice.</b>
+    The core stop at USD 67.10 was breached on 15 September; from 20 October the shares closed below the absolute
+    stop of USD 61.27 on five separate days. Fundamentals, meanwhile, moved the other way: the extraordinary general
+    meeting rejected the Russian offtake contract (de-Russification ahead of expectations), a national strategic
+    uranium reserve was proposed, the term contract price set a record at USD 96.50/lb and spot rose 4%.
+    <b>The mechanism behind the divergence is now established: uranium equities are being priced as high-duration
+    liquidity assets, not as uranium-price assets.</b> That is a liquidity shock, not a broken thesis. Rating held at
+    Watch; the only hard gate still outstanding is the 2027 sulfuric-acid contract.</p>
+  </div>
+
+  <h2>01 · October scorecard</h2>
+  <table>
+    <tr><th>Dimension</th><th>October actual</th><th>Verdict</th></tr>
+    <tr><td>Share price</td>
+      <td>USD 63.80 (30 Sep) → <b>USD 61.20</b> (30 Oct), −4.08%; −3.62% from 1 Oct; intraday high USD 67.60,
+        low USD 59.50 (23 Oct)</td>
+      <td class="neg">Third consecutive monthly decline</td></tr>
+    <tr><td>Absolute stop USD 61.27</td>
+      <td>Closed below it on 20, 22, 23, 26 and 30 October</td>
+      <td class="neg">Plan fully invalidated</td></tr>
+    <tr><td>Uranium spot</td><td>~USD 89.5 → ~USD 92–93, +4.0% in the month</td>
+      <td class="pos">Commodity still strengthening</td></tr>
+    <tr><td>Term contract price (Q3-end)</td><td>USD 96.50/lb, +USD 1.00 QoQ, +USD 13.50 YoY</td>
+      <td class="pos">Nominal record</td></tr>
+    <tr><td>EGM (first gate set in September)</td>
+      <td>China SNURDC <b>approved with 88.63%</b>; Uranium One (Russia) <b>not approved</b> — 88.34% abstained;
+        board re-election 96.26%</td>
+      <td class="pos">Ahead of expectations (de-Russification)</td></tr>
+    <tr><td>Russian acid 2027 (second gate)</td>
+      <td>No signing disclosure as of 31 October; the company itself said contracts are "usually signed in October"</td>
+      <td class="warn">Not delivered</td></tr>
+    <tr><td>SPUT flows</td>
+      <td>Discount −13.08% (24 Sep) → −12.77% (30 Oct); holdings 81,697,348 lb unchanged for three months;
+        <b>zero net purchases every week in October</b></td>
+      <td class="warn">Extreme easing slightly, no reversal</td></tr>
+    <tr><td>Sector</td><td>URA −15.36%, URNM −10.75%, KAP −4.08%</td>
+      <td class="warn">Outperformed the sector by 6.67pp</td></tr>
+    <tr><td>New catalysts</td><td>National strategic uranium reserve; three nuclear plants; Balkhash construction from 2027</td>
+      <td class="pos">Long-term structural</td></tr>
+    <tr><td>New risks</td><td>Cameco Q3 miss (−10% pre-market) triggering sector EPS downgrades; US 10-year near 5%</td>
+      <td class="warn">—</td></tr>
+  </table>
+
+  <h2>02 · Price versus sector <em>what fell was the multiple, not uranium</em></h2>
+  <p>KAP fell 4.08% while URA fell 15.36% and URNM fell 10.75%. In other words KAP outperformed URNM by 6.67pp and
+  URA by 11.28pp in a month when the uranium price rose. The dispersion is not company-specific news: it is the
+  sector being repriced.</p>
+  <p><b>Why "commodity up, equities down" can persist for three months.</b> Sprott's 23 October research offers a
+  testable framework: URNM has decoupled from uranium spot since late August and now trades in step with small caps
+  and liquidity proxies; the SPUT discount is close to a historical −2σ; yet cumulative flows into URNM/URA remain
+  net positive. <span class="lbl i">Inference</span>The conclusion is a <b>liquidity shock, not a broken thesis</b>.
+  <span class="muted">Falsification: if KAP's realised prices fall while spot is stable, or if the discount to net
+  asset value widens because of company-specific news rather than sector flows, this reading is wrong.</span></p>
+  <p><b>30 October was the cleanest test.</b> Cameco reported Q3 revenue of C$619M (+0.7%, a miss) and adjusted EPS of
+  C$0.00 (C$0.27 below consensus); the shares were −10% pre-market. That day URA fell 5.57%, URNM 5.40% and KAP
+  4.52% — moving together, with no reference to the uranium price.</p>
+
+  <h2>03 · Audit of the 24 August trading plan</h2>
+  <table>
+    <tr><th>Item</th><th>Plan (24 Aug)</th><th>October actual</th><th>Verdict</th></tr>
+    <tr><td>Target</td><td>USD 75, 12M horizon</td><td>Reached 76.00 on 4 Sep; October high close 65.80 (28 Oct)</td>
+      <td class="warn">Reached, then lost</td></tr>
+    <tr><td>Entry zone</td><td>67.20–69.50, staggered on pullbacks</td><td>Never returned to the zone all month</td>
+      <td class="neg">Not triggered</td></tr>
+    <tr><td>Core stop</td><td>67.10, exit on close below</td><td>Breached 15 Sep; below it for all of October</td>
+      <td class="neg">Triggered in September</td></tr>
+    <tr><td>Absolute stop</td><td>61.27, full exit on break</td><td>First close below on 20 Oct (61.20); 59.50 on 23 Oct;
+      61.20 on 30 Oct</td><td class="neg">New October trigger</td></tr>
+    <tr><td>NEV</td><td>73.86, margin of safety</td><td>Discount 11.2% → 12.7% (NEV cut to 70.13)</td>
+      <td class="warn">Wider discount alongside a cut</td></tr>
+  </table>
+  <div class="notes">On the 24 August rules the position should have been exited in September. In October there was
+  <b>no single day on which the shares closed back above MA20</b>, so there was no rule-based case for averaging down.
+  <span class="lbl i">Inference</span>A disciplined exit on 15–18 September at 67.0–64.7 would have cost roughly
+  0–4% against the lower bound of the entry zone (67.20); holding to 30 October cost 8.9%.
+  <span class="muted">Falsification: recompute using actual fills and slippage.</span></div>
+
+  <h2>04 · Catalysts and risks added in October</h2>
+  <table>
+    <tr><th>Date</th><th>Catalyst</th><th>Nature and boundary</th></tr>
+    <tr><td>28 Oct</td><td>Presidential address: proposal for a national strategic uranium reserve covering domestic
+      nuclear demand "into the next century"; Balkhash nuclear plant earliest construction 2027; push for the
+      Moiynkum integrated agreement</td>
+      <td><span class="lbl f">Fact</span><span class="lbl i">Inference</span>Long term this anchors KAP as a national
+        champion with domestic demand. If the reserve purchases at domestic prices, it is neutral-to-negative for
+        realisable prices and reduces exportable volume.</td></tr>
+    <tr><td>29 Oct</td><td>Prime-ministerial meeting instructing Samruk-Kazyna and the Atomic Energy Agency to
+      implement the strategic reserve and keep the four plant sites on schedule</td>
+      <td><span class="lbl f">Fact</span>Implementation follow-through.</td></tr>
+    <tr><td>7–8 Oct</td><td>EGM rejects the Uranium One contract; approves the China SNURDC contract</td>
+      <td><span class="lbl f">Fact</span><span class="lbl i">Inference</span>Lowers secondary-sanctions and compliance
+        discount; the cost is a lost customer and possibly a higher incentive for Russia to use the acid lever.</td></tr>
+    <tr><td>October</td><td>Term price USD 96.50/lb (Q3-end, +1.00 QoQ, +13.50 YoY); spot ~92–93, +4.0%</td>
+      <td><span class="lbl f">Fact</span>Cameco Q3 MD&amp;A (UxC/TradeTech basis).</td></tr>
+    <tr><td>28 Oct</td><td>Sector rebound: Constellation awarded a USD 5bn conditional DOE loan; BWXT–Antares TRISO;
+      KAP +4.61%</td>
+      <td><span class="lbl f">Fact</span>Price. <span class="lbl i">Inference</span>Sector beta, not company news.</td></tr>
+  </table>
+
+  <table style="margin-top:14px">
+    <tr><th>Date</th><th>Risk</th><th>Nature and boundary</th></tr>
+    <tr><td>30 Oct</td><td>Cameco Q3: revenue C$619M (+0.7%, below consensus); adjusted EPS C$0.00 (C$0.27 miss);
+      −10% pre-market; production guidance narrowed to 19.5–20.5 Mlb</td>
+      <td><span class="lbl f">Fact</span><span class="lbl i">Inference</span>The sector is entering an EPS downgrade
+        cycle: record uranium prices but reported earnings dragged by cost and delivery timing.</td></tr>
+    <tr><td>All month</td><td>US 10-year hovering near 5%; Fed on hold at 3.75–4.00%; AI-capex doubts unresolved</td>
+      <td><span class="lbl f">Fact</span>Discount-rate pressure on high-duration assets.</td></tr>
+    <tr><td>From 20 Oct</td><td>Absolute stop USD 61.27 lost on five closes</td>
+      <td><span class="lbl f">Fact</span>Technical structure broken.</td></tr>
+    <tr><td>End-Oct</td><td>No 2027 acid disclosure</td>
+      <td><span class="lbl f">Fact</span>No announcement. <span class="lbl i">Inference</span>Risk unresolved; the
+        largest single unpriced variable.</td></tr>
+    <tr><td>All month</td><td>The other side of the strategic reserve: domestic price spread, lower exportable volume</td>
+      <td><span class="lbl i">Inference</span>No implementing rules published; no quantification attempted.</td></tr>
+  </table>
+
+  <h3>Rolling review of the August–September catalysts</h3>
+  <table>
+    <tr><th>Event</th><th>October progress</th><th>Verdict</th></tr>
+    <tr><td>7 Sep — amendments to the Subsoil Code</td>
+      <td>No adverse disclosure. Transfer thresholds (open-pit/underground &gt;50%, in-situ recovery &gt;75%);
+        exploration-to-contract conversion up to 11 years</td>
+      <td class="pos">Neutral landing</td></tr>
+    <tr><td>Graham legislation (gate 2)</td>
+      <td>No new action. Exemption window runs to 31 Dec 2027, with a hard cut-off on 1 Jan 2028. On 8 October
+        Urenco commissioned 75% of the new capacity at its New Mexico plant</td>
+      <td class="warn">Positive offset by non-Russian supply catching up</td></tr>
+    <tr><td>WNA symposium (term prices)</td>
+      <td>Term price at a record USD 96.50; contracted volume still below replacement level</td>
+      <td class="pos">Price up, volume lagging</td></tr>
+    <tr><td>6–7 Oct EGM</td>
+      <td>Completed: China 88.63% in favour; Russia rejected (88.34% abstained); board re-election 96.26%</td>
+      <td class="pos">Gate passed, in an unexpected way</td></tr>
+    <tr><td>Russian acid 2027</td>
+      <td>Zero new disclosure. CFO on 21 Aug: contracts are "usually signed by October" and "do not yet fully cover
+        next year's requirements"; TQZ slipped to 2027Q3–2028Q1</td>
+      <td class="neg">Past the company's own stated timing</td></tr>
+    <tr><td>SPUT zero purchases</td>
+      <td>Zero net purchases every week in October; only +250K lb cumulatively since 22 June</td>
+      <td class="neg">Not repaired</td></tr>
+    <tr><td>Sector de-rating</td>
+      <td>URA −15.36%, URNM −10.75%; URNM made a 52-week low on 23 October</td>
+      <td class="neg">Worsened</td></tr>
+    <tr><td>Q3 operational update</td>
+      <td>Not yet released; three third-party sources indicate 20, 26 and 27 November</td>
+      <td class="warn">Awaiting company confirmation</td></tr>
+  </table>
+
+  <h2>05 · The most important causal chain of the month</h2>
+  <div class="box">
+    <p style="margin-bottom:8px"><span class="lbl i">Inference</span>One company, on one side voting down a Russian
+    buyer's uranium contract at its own shareholder meeting, on the other still depending on Russian sulfuric acid.</p>
+    <p style="margin:0">① On 7 October, 88.34% of votes cast abstained on the Uranium One (Rosatom group) contract —
+    <span class="lbl f">Fact</span>; ② roughly 20% of acid requirements are imported from Russia, subject to an
+    approval regime since 12 September, with 2027 terms under negotiation — <span class="lbl f">Fact</span>;
+    ③ the domestic TQZ acid plant has slipped to 2027Q3–2028Q1 — <span class="lbl f">Fact</span>.
+    → With ② and ③ in place, Russia holds effective leverage over KAP's 2027 output, and ① raises its incentive to
+    use that leverage.</p>
+  </div>
+  <div class="notes"><b>Falsification path:</b> ① a 2027 acid contract signed in November on acceptable volume and
+  price; ② systematic exemption or an intergovernmental agreement covering Russian acid exports to Kazakhstan;
+  ③ KAP disclosing acid inventory sufficient to cover all of 2027.</div>
+  <div class="notes"><b>On the EGM result itself:</b> 88.34% abstention (200,867,174 shares) caused the Uranium One
+  contract to fail; only 5.39% voted for and 6.27% against. The company stated that a simple majority was all that
+  was required and that the outcome "should not be interpreted as outright opposition to the Russian buyer".
+  <span class="lbl i">Inference</span>With a 75% state holding, the controlling shareholder choosing not to vote
+  looks like a technical way of "avoiding a recorded vote on a sanctions topic" — political avoidance in substance.
+  <span class="muted">Falsification: if Russian contracts later continue via swaps or related parties, the
+  de-Russification read is too strong.</span></div>
+
+  <h2>06 · Seven-dimension score <em>versus 24 August</em></h2>
+  <table>
+    <tr><th>Dimension</th><th class="n">October</th><th class="n">24 Aug</th><th>Change</th></tr>
+    <tr><td>Technical</td><td class="n">3.0</td><td class="n">6.0</td><td class="neg">▼</td></tr>
+    <tr><td>Fundamentals</td><td class="n">6.0</td><td class="n">5.9</td><td class="pos">▲</td></tr>
+    <tr><td>News</td><td class="n">6.0</td><td class="n">6.5</td><td class="neg">▼</td></tr>
+    <tr><td>Sentiment</td><td class="n">4.5</td><td class="n">5.5</td><td class="neg">▼</td></tr>
+    <tr><td>Valuation</td><td class="n">6.5</td><td class="n">6.0</td><td class="pos">▲</td></tr>
+    <tr><td>Risk controllability</td><td class="n">3.0</td><td class="n">4.0</td><td class="neg">▼</td></tr>
+    <tr><td>Catalyst visibility</td><td class="n">5.5</td><td class="n">5.0</td><td class="pos">▲</td></tr>
+  </table>
+  <div class="notes"><b>Technical detail:</b> close 61.20 &lt; MA20 62.94 &lt; MA50 67.27 &lt; MA200 73.68;
+  RSI14 43.30 (35.40 at 30 Sep); MACD histogram +0.3348 (−0.5375 at 30 Sep) — momentum repair has begun
+  <b>but is not confirmed by price</b>. ATR14 USD 2.66 (4.35% of price); volatility remains high.</div>
+
+  <h2>07 · Valuation <em>conditional basis</em></h2>
+  <table>
+    <tr><th>Metric</th><th class="n">Value</th><th>Basis and boundary</th></tr>
+    <tr><td>TTM attributable profit</td><td class="n">524,947 mn KZT</td>
+      <td>FY2025 570,460 + H1'26 156,555 − H1'25 202,068; as of 30 Jun 2026</td></tr>
+    <tr><td>EPS (TTM)</td><td class="n">2,024.04 KZT</td>
+      <td>259,356,608 shares outstanding at period end (1 GDR = 1 share); not weighted-average, not October month-end</td></tr>
+    <tr><td>Market capitalisation</td><td class="n">~USD 15.87bn</td><td>61.20 × 259,356,608 at FX 450.66</td></tr>
+    <tr><td>P/E (TTM)</td><td class="n">13.63x</td><td>13.15x at 435 / 13.91x at 460; the FX range is an assumption, not an official rate</td></tr>
+    <tr><td>FY2025 dividend yield</td><td class="n">4.69%</td><td>DPS 1,292.27 KZT at 450.66; the FY2026 dividend is expected to fall, so the forward yield is lower</td></tr>
+    <tr><td>Net cash</td><td class="n">157,121 mn KZT</td><td>Group basis at 30 Jun 2026 — not the cash currently distributable to shareholders</td></tr>
+    <tr><td>Third-party cross-check</td><td class="n">EPS 2,024.03 / P/E 14.36</td>
+      <td>StockAnalysis (KASE:KZAPD): net profit 524.95bn; EPS matches our independent calculation — the denominator is not in dispute</td></tr>
+  </table>
+  <p><span class="lbl i">Inference</span>At 13–14x TTM earnings, with net cash and a 12.7% discount to NEV, the
+  valuation already carries a margin of safety. But the core disagreement from 24 August — convergence of realised
+  prices — is still unverified: H1 realised USD 67.88 against spot of 92–93, a discount that has widened to ~27%.
+  Cheap here means "expectations are low", not "proven".</p>
+  <div class="notes"><b>Why no single-point target price.</b> With the 2027 acid terms unresolved, neither the 2027
+  cost base nor the 2027 volume can be quantified; any target price would dress uncertainty up as precision.
+  A 12-month net economic value (NEV) is given instead, with explicit scenario probabilities.</div>
+
+  <h2>08 · Bear case, rolled forward</h2>
+  <table>
+    <tr><th>Argument</th><th>October evidence</th><th>Verdict</th></tr>
+    <tr><td>BEAR-2 Cost inflation</td>
+      <td>Cameco 9M cash cost USD 29.70/lb (+22%), Q3 USD 40.73 (+62%); KAP AISC guidance USD 39.0–40.5 not raised again</td>
+      <td class="warn">Industry cost push confirmed by third parties</td></tr>
+    <tr><td>BEAR-3 Realised-price convergence is an illusion</td>
+      <td>KAP H1 67.88 vs spot 92–93 → discount widened to ~27%; Cameco Q3 realised 65.78</td>
+      <td class="neg">Argument strengthened</td></tr>
+    <tr><td>&nbsp;&nbsp;↳ rebuttal (reviewed 1 Nov)</td>
+      <td>The "27%" is a denominator effect: an August realised price over an end-October spot (on the same basis the
+        H1 discount is 21.1%). KAP's own sensitivity table shows 2026 locked and, from 2027, roughly 65–75% pass-through
+        of spot increases (spot 100 → 2027E 85 / 2028E 90). Convergence is delayed, not illusory.</td>
+      <td class="warn">Downgrade to "persistent"</td></tr>
+    <tr><td>BEAR-5 Geopolitical double edge</td>
+      <td>Rejecting the Russian contract raises the acid-lever incentive <span class="lbl i">Inference</span>;
+        the Graham exemption runs to end-2027</td><td class="neg">Deepened</td></tr>
+    <tr><td>&nbsp;&nbsp;↳ rebuttal (reviewed 1 Nov)</td>
+      <td>The rejection came from an 88.34% abstention and the company says it should not be read as anti-Russian;
+        Rosatom's Uranium One is a JV partner at KAP's mines, Kazakhstan is close to Russia's only large acid buyer,
+        and Decree 1158 is an approval regime, not a ban — cutting acid would be self-harm. The risk is volume, price
+        and timing rather than a cutoff <span class="lbl i">Inference</span>: 2027 release around 75–85%.</td>
+      <td class="warn">Downgrade to "persistent"</td></tr>
+    <tr><td>BEAR-6 SPUT flows</td><td>−12.77% discount, zero purchases in October, holdings unchanged for three months</td>
+      <td class="warn">No reversal</td></tr>
+    <tr><td>New: sector liquidity shock</td>
+      <td>URNM decoupled from spot and tracking small caps and liquidity; fell in step with Cameco on 30 October</td>
+      <td class="neg">The main cause of the October decline</td></tr>
+    <tr><td>New: Q3 EPS downgrades</td><td>Consensus Q3 EPS 1.05 versus 1.54 a year earlier (−32%)</td>
+      <td class="warn">To be tested in November</td></tr>
+    <tr><td>Bull counter-evidence</td>
+      <td>Strategic uranium reserve + three nuclear plants + term price 96.50 + 6.67pp outperformance versus the sector
+        + a 12.7% discount</td><td class="warn">Nothing overwhelming</td></tr>
+  </table>
+  <div class="notes">The bears keep strengthening on two legs — realised prices and liquidity. The bulls have upgraded
+  from sell-side ratings to harder things, national strategy and term prices — <b>but no bull argument answers the
+  question "why buy now".</b></div>
+
+  <h2>09 · Sell-side dispersion</h2>
+  <table>
+    <tr><th>Source</th><th>Stance</th><th class="n">Figure</th><th>Nature</th></tr>
+    <tr><td>Consensus</td><td>13 Buy / 1 Hold / 0 Sell</td><td class="n">mean USD 90.86 (78.42–105.19)</td>
+      <td>Data as of 10 September — stale</td></tr>
+    <tr><td>Jefferies</td><td>Buy</td><td class="n">PT 106; scenarios 132 / 106 / 48</td><td>Reiterated in October (secondary source)</td></tr>
+    <tr><td>JPMorgan</td><td>Overweight</td><td class="n">PT 91</td><td>Raised 1 September</td></tr>
+    <tr><td>Simply Wall St</td><td>Model output</td><td class="n">FV 91.78, 28.3% undervalued</td><td>Model, not a broker</td></tr>
+  </table>
+  <div class="notes">The sell-side mean implies +48% from 61.20; Jefferies' negative scenario of 48 is 22% <i>below</i>
+  the current price. A range of 48–132 is itself evidence of high uncertainty, not a target price. The collective
+  Buy stance has been maintained since August while the market has not followed — the echo-chamber pattern is
+  unchanged.</div>
+
+  <h2>10 · 12-month NEV scenario tree</h2>
+  <table>
+    <tr><th>Scenario</th><th class="n">Sep</th><th class="n">Oct</th><th class="n">Target</th><th>Trigger conditions</th></tr>
+    <tr><td>Surge</td><td class="n">25%</td><td class="n">25%</td><td class="n">USD 85</td>
+      <td>2027 acid signed + Q3 realised-price step-up + spot above 100 + sector liquidity restored</td></tr>
+    <tr><td>Base</td><td class="n">45%</td><td class="n">43%</td><td class="n">USD 72</td>
+      <td>Costs delivered per guidance; realised prices converge slowly; range of 58–70 while awaiting Q3 and acid terms</td></tr>
+    <tr><td>Plummet</td><td class="n">30%</td><td class="n">32%</td><td class="n">USD 56</td>
+      <td>Acid constraints cut 2027 guidance + large Q3 EPS miss + continued sector de-rating + dividend cut</td></tr>
+    <tr class="hl"><td><b>NEV (weighted)</b></td><td class="n">71.90</td><td class="n"><b>70.13</b></td><td class="n">—</td>
+      <td>Subjective probabilities; 12.7% discount to the current price</td></tr>
+  </table>
+  <div class="notes"><b>Basis for the change:</b> bear +2pp (stop-loss breach, Cameco's demonstration miss, acid
+  terms overdue without disclosure); base −2pp (target 73.5 → 72, on the sector valuation centre and the liquidity
+  discount); bull unchanged. <b>This is a judgement, not a calculation.</b></div>
+
+  <h2>11 · SPUT: the discount is the demand signal</h2>
+  <p>SPUT can only buy uranium through at-the-market issuance when it trades at a premium; a discount stops the
+  programme. The discount has travelled from −8.12% (2 Sep) and −10.29% (22 Sep) to −13.08% (24 Sep), −13.95%
+  (23 Oct) and −12.77% (30 Oct) — easing at the margin, but never reaching the −8% repair threshold.
+  Holdings have been stuck at 81,697,348 lb since 2 September, weekly net purchases in October were zero,
+  and the cumulative addition since 22 June is only +250K lb (USD 21.88M).
+  <b>Not buying is not the same as no demand for uranium</b> — term contracts are the main channel, and utilities are
+  holding volume back in the face of record prices.</p>
+
+  <h2>12 · Event calendar and conditions to add</h2>
+  <table>
+    <tr><th>Window</th><th>Event</th><th>What to watch</th></tr>
+    <tr><td>Early Nov</td><td>2027 Russian acid contract (any signing should be announced)</td>
+      <td>Whether signed; volume, price, tenor — <b>highest priority</b></td></tr>
+    <tr><td>Late Nov</td><td>Q3 operational and financial update — three candidate dates circulating: 20, 26 and 27 November</td>
+      <td>① whether 2027 production guidance is cut; ② Q3 realised price; ③ volume recovery; ④ acid inventory and TQZ language</td></tr>
+    <tr><td>November</td><td>Implementing rules for the strategic uranium reserve</td>
+      <td>Purchase-price mechanism (international versus domestic), and whether exportable volume is affected</td></tr>
+    <tr><td>31 Dec 2026</td><td>Russian acid approval regime expires</td><td>Extension or permanence</td></tr>
+    <tr><td>2027</td><td>Balkhash nuclear plant construction starts</td><td>Whether offtake arrangements land with KAP</td></tr>
+  </table>
+
+  <div class="box warnbox">
+    <h3 style="margin-top:0">Conditions to add to the position — tightened in October</h3>
+    <p style="margin-bottom:6px"><b>Both A and B must be satisfied. "Two out of three" is no longer accepted.</b></p>
+    <p style="margin-bottom:4px"><b>A · Price confirmation.</b> A weekly close above MA50 (currently USD 67.27)
+    sustained for two consecutive weeks; <i>or</i> a reclaim of MA20 (USD 62.94) followed by a successful retest.</p>
+    <p style="margin-bottom:4px"><b>B · Hard variable delivered.</b> The 2027 acid contract signed, <i>and</i> 2027
+    production guidance not cut (or explicitly maintained in the Q3 update).</p>
+    <p style="margin-bottom:0"><b>Auxiliary observations (not conditions):</b> the SPUT discount narrowing past −8%
+    with net purchases resuming; spot holding above 95; URNM finding a floor.</p>
+  </div>
+
+  <div class="box">
+    <h3 style="margin-top:0">Veto condition — a downgrade from Watch to Avoid</h3>
+    <p style="margin:0">A cut to 2027 production guidance <b>and</b> a reduction in the FY2026 dividend occurring in
+    the same period.</p>
+  </div>
+
+  <h2>13 · Data and verification boundaries</h2>
+  <ol class="notes-list">
+    <li><b>Prices.</b> IBKR TWS/Gateway, <span class="muted">whatToShow=TRADES</span>, <span class="muted">useRTH=true</span>,
+      conId 341758585 (KAP, LSEIOB1, USD, Reg S GDR, 1 GDR = 1 share), window 31 Oct 2024 → 30 Oct 2026.
+      Reconciled against the September saved series: <b>253 overlapping trading days, zero field differences.</b>
+      Same source, consistent — <b>this does not constitute an independent second source</b>.</li>
+    <li><b>Indicator definitions.</b> MAs are simple moving averages; RSI14 is Wilder's (first value from a simple
+      average of the first 14 changes); MACD uses EMA12 − EMA26, DEA = EMA9(DIF), histogram not multiplied by two;
+      ATR14 is Wilder's.</li>
+    <li><b>Sector.</b> URA −15.36% (39.85 → 33.73), URNM −10.75% (47.46 → 42.36), 1–30 October, from public quote
+      aggregation pages, not exchange source files.</li>
+    <li><b>Uranium price.</b> Spot ~92–93 (Yellowcake 30 Oct 93.01, 31 Oct 92.04; Tindex 31 Oct 92.46), +4.0% in the
+      month. The term price of USD 96.50 is from Cameco's Q3 MD&amp;A (UxC/TradeTech basis) and is the only uranium
+      price in this note disclosed directly in a listed company's financial statements.</li>
+    <li><b>SPUT.</b> Sprott website plus Yellowcake Analytics (30 Oct NAV 22.25, market price 19.41, discount −12.77%,
+      holdings 81,697,348 lb).</li>
+    <li><b>EGM.</b> Company RNS of 8 October (1510Y), vote by resolution; cross-checked across Mugglehead, NucNet,
+      Energy Intelligence and Kalkine.</li>
+    <li><b>Strategic uranium reserve.</b> Presidential website, government factsheet, Kazinform, Trend and Qazinform
+      agree. <b>No purchase-mechanism text exists</b>, so it is treated as a directional judgement only.</li>
+    <li><b>Russian acid.</b> The company RNS of 21 September (5514V) is the last primary information; there was no new
+      announcement in October. "Not delivered" means "not disclosed", <b>not "talks failed"</b>.</li>
+    <li><b>Valuation.</b> TTM and EPS independently recomputed from the FY2025 audited accounts plus the H1 statements;
+      StockAnalysis independently shows 524.95bn and 2,024.03, matching. FX is an assumed range.</li>
+  </ol>
+  <div class="notes"><b>Unresolved:</b> 2027 acid terms; whether the share count changed at month-end (259,356,608 is
+  the 30 June and EGM figure); the full FCF policy formula and distributable attributable cash; the strategic
+  reserve's purchase mechanism; the primary sell-side notes behind the price targets.</div>
+
+  <div class="notes" style="margin-top:16px"><b>Scope of this note.</b> This is an incremental October evidence
+  update. It does not rewrite the 24 August or September editions, and it does not inherit their rating, target price,
+  probabilities or position sizing — the NEV and probabilities above are subjective estimates made this month.</div>
+
+  <div class="disc">
+    <b>Important information.</b> This document is a personal research record prepared for private reference. It is
+    not investment advice, not a recommendation, and not an offer or solicitation to buy or sell any security. It has
+    not been prepared in accordance with any regulatory requirement for investment research, and it is not intended
+    for distribution to retail investors. The author holds the security discussed and may transact without notice.
+    Figures are unaudited and are derived from broker and exchange records plus public sources; they may be restated
+    if records are corrected. Estimates, probabilities and net economic values are subjective judgements, not
+    calculations, and are subject to change without notice. Past performance is not indicative of future results.
+    <div style="margin-top:8px">Chris Cheung · prepared 2 November 2026 · data cut-off 30 October 2026 close ·
+      companion document to the October 2026 monthly report</div>
+  </div>
+
+  <div class="foot">Chinese edition of this review: kap_october_review_2026-11-01.html</div>
+
+</div>
+</body>
+</html>
