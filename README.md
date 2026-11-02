@@ -50,7 +50,7 @@ The first period is partial — the record begins on the first valuation date �
 
 This is a self-directed portfolio, not an effort to generate management-fee income. It has two parts with different purposes:
 
-- **Long-term value holdings** (KAP on LSE IOB, Consun Pharmaceutical 1681.HK): held with a longer horizon, traded infrequently, interim drawdowns accepted. That is stated intent, not a claim that they will recover — their current losses are shown in the reports.
+- **Long-term value holdings** (KAP on LSE IOB, Consun Pharmaceutical 1681.HK): held with a longer horizon, traded infrequently, interim drawdowns accepted. Short-term mark-to-market losses on these holdings do not trigger trading action. That is stated intent, not a claim that they will recover - their current losses are shown in the reports.
 - **Crypto trading sleeve**: BTC dual-momentum signals executed on OKX (entries and exits logged against order IDs and fill prices), BTC covered calls (options ledger settled in BTC terms), and OKX stablecoin yield for cash between signals. This sleeve is for liquidity and active trading; it carries its own market and counterparty risk and is not a risk-free reserve. **It has been flat since 24 Oct 2026**, when the dual-momentum signal went flat and the BTC position was sold in full (0.54438727 BTC at USD 80,614.63).
 - Background: in crypto since 2014; previously ran my own mining hardware.
 
