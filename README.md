@@ -63,6 +63,18 @@ This is a self-directed portfolio, not an effort to generate management-fee inco
 | `audit_log.json` | Version history: date, content fingerprint of both editions, and what changed in each published version (**23 entries**) |
 | `reports/` | Monthly review write-ups |
 | `research/` | Single-name research behind holding decisions (e.g. the October 2026 KAP review, in Chinese and English) |
+| `szh-clips.html` | **Job-search media page** — two work-related video excerpts from *Shenzhen River* Ep.4. Not part of the investment record. |
+| `szh-clip1.mp4`, `szh-clip2.mp4` | The two video excerpts embedded by that page |
+| `szh-poster1.jpg`, `szh-poster2.jpg` | Poster frames for those two videos |
+
+## Note on the `szh-*` files — one page, not five links
+
+The five `szh-*` files at the repo root are **one HTML page plus the four assets it needs**, not five separate or duplicate links.
+
+- The only URL anyone needs is **https://chris-dad.github.io/portfolio-track-record/szh-clips.html**.
+- The two `.mp4` files are the only work-related excerpts (08:19–09:08 and 15:25–17:38). The two `.jpg` files are their poster frames. The page references them by relative path, so they must sit alongside it for GitHub Pages to serve the videos.
+- The **full documentary episode is not hosted here**; the page links out to the director's page at `xinpianchang.com/a12705705`.
+- These files are unrelated to the portfolio record, the monthly reports and the audit chain. They live in this repo only because GitHub Pages is already configured here.
 
 ## What the hashes prove, and what they do not
 
